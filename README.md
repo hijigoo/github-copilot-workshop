@@ -42,9 +42,10 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Agent, Custom
 
 | Step | 주제 | 무엇을 배우나요? |
 |:----:|------|-----------------|
-| [09](step-09-bonus-a-extras/) | 추가 실습 | 언어 마이그레이션, Docker, API 문서 자동화 등 실전 시나리오 |
+| [09](step-09-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
 | [10](step-10-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
 | [11](step-11-bonus-c-spring/) | Spring Boot 백엔드 | 같은 TODO API를 Java로 다시 구현하며 언어 전환 체험 |
+| [12](step-12-bonus-d-debug/) | Chat Debug View | Chat Debug View로 Copilot 내부 동작(System Prompt, Context 등) 분석 |
 
 ---
 

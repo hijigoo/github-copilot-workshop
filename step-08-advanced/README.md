@@ -205,7 +205,7 @@ pytest에서 3개 중 1개만 실패해. 실패하는 테스트만 분석해서 
 축하합니다! 🎉 메인 트랙의 모든 단계를 완료했습니다!
 
 **보너스 트랙**으로 넘어가세요:
-- **[Step 09 — 추가 실습](../step-09-bonus-a-extras/README.md)**: Docker, 문서화, 마이그레이션
+- **[Step 09 — Docker](../step-09-bonus-a-docker/README.md)**: Copilot으로 Docker 컨테이너화
 - **[Step 10 — React.js 프론트엔드](../step-10-bonus-b-react/README.md)**: TODO API를 소비하는 React UI
 - **[Step 11 — Spring Boot 백엔드](../step-11-bonus-c-spring/README.md)**: Java로 같은 API 구현
 - **[Step 12 — 토론](../step-12-bonus-discussion/README.md)**: AI 한계, 팀 도입, 미래 전망
