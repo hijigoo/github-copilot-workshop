@@ -40,7 +40,7 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Agent, Custom
 |:----:|------|-----------------|
 | 09 | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
 | 10 | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 |
-| 11 | 언어 마이그레이션 | 다른 언어로 TODO API를 다시 구현하며 전환 체험 |
+| 11 | 레거시 마이그레이션 | 레거시 코드(클래식 ASP 등)를 현대적 언어로 전환 체험 |
 | 12 | Chat Debug View | Chat Debug View로 Copilot 내부 동작 분석 |
 
 ---
