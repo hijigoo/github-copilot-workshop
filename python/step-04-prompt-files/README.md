@@ -1,4 +1,4 @@
-# Step 5. Prompt Files
+# Step 4. Prompt Files
 
 > ⏱️ 20분 | 난이도 ⭐⭐
 >
@@ -8,13 +8,16 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 4 완성 코드 (SDD 완료: schemas + priority + pagination)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 3 완성 코드 + SDD 적용 완료 (schemas + priority + pagination) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
-## 왜 다섯 번째인가?
+## 왜 Prompt Files인가?
 
 Step 3의 **Instructions**가 "항상 적용되는 규칙"이라면,
 **Prompt Files**는 "필요할 때 꺼내 쓰는 매크로"입니다.
@@ -213,3 +216,5 @@ Copilot Chat을 열고 (`Ctrl+Shift+I` / Mac: `Cmd+Shift+I`):
 ## 다음 단계
 
 → [Step 5. Agent 모드](../step-05-agent/README.md)
+
+> 💡 SDD를 아직 해보지 않았다면 → [Step 9. SDD (보너스)](../step-09-spec-driven/README.md)

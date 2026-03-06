@@ -1,4 +1,4 @@
-# Step 6. Agent에게 복잡한 작업 위임하기
+# Step 5. Agent에게 복잡한 작업 위임하기
 
 > ⏱️ 25분 | 난이도 ⭐⭐⭐
 >
@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 5 완성 코드 (Prompt Files + due_date 기능 포함)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 4 완성 코드 (Prompt Files + due_date 기능 포함) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ### 의존성 설치
 

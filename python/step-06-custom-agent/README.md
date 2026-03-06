@@ -1,4 +1,4 @@
-# Step 7. Custom Agent 제작
+# Step 6. Custom Agent 제작
 
 > ⏱️ 25분 | 난이도 ⭐⭐⭐
 >
@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 6 완성 코드 (SQLite DB 연동 완료)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 5 완성 코드 (SQLite DB 연동 완료) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 

@@ -1,4 +1,4 @@
-# Step 4. Spec-Driven Development (SDD)
+# Step 9. Spec-Driven Development (SDD)
 
 > ⏱️ 25분 | 난이도 ⭐⭐
 >
@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 3 완성 코드 (copilot-instructions.md + 경로 지정 지침 설정)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 3 완성 코드 (copilot-instructions.md + 경로 지정 지침 설정) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ### 의존성 설치
 
@@ -22,7 +25,7 @@ pip install -r requirements.txt
 
 ---
 
-## 왜 네 번째인가?
+## SDD란?
 
 Instructions로 **스타일**을 잡았다면, SDD로 **정확도**를 극대화합니다.
 
@@ -175,7 +178,7 @@ tests/
 | updated_at | datetime | 자동 | 수정 시각 (수정 시 갱신) |
 
 ## 저장소
-- 현재 단계: 인메모리 딕셔너리 (Step 6에서 SQLite로 전환 예정)
+- 현재 단계: 인메모리 딕셔너리 (Step 5에서 SQLite로 전환 예정)
 ```
 
 ### 관찰 포인트

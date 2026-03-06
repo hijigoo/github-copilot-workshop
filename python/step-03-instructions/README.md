@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 2 완성 코드 (docstring + 테스트 포함 TODO API)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 2 완성 코드 (docstring + 테스트 포함 TODO API) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
