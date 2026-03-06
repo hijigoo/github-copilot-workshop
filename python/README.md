@@ -58,6 +58,7 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 | [10](step-10-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
 | [11](step-11-bonus-c-spring/) | Spring Boot 백엔드 | 같은 TODO API를 Java로 다시 구현하며 언어 전환 체험 |
 | [12](step-12-bonus-d-debug/) | Chat Debug View | Chat Debug View로 Copilot 내부 동작(System Prompt, Context 등) 분석 |
+| [13](step-13-bonus-e-speckit/) | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
 
 ---
 
