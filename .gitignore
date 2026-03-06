@@ -20,6 +20,15 @@ env/
 *.swp
 *.swo
 
+# Java/Gradle
+.gradle/
+bin/
+build/
+out/
+*.class
+*.jar
+!gradle-wrapper.jar
+
 # OS
 .DS_Store
 Thumbs.db
