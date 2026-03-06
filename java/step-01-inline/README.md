@@ -20,7 +20,7 @@
 ## 왜 이게 첫 번째인가?
 
 가장 낮은 진입 장벽입니다.
-코드를 치는 도중에 AI가 **회색 텍스트(Ghost Text)**로 제안하는 것을 `Tab`으로 수락하면 됩니다.
+코드를 치는 도중에 AI가 **회색 텍스트(Ghost Text)** 로 제안하는 것을 `Tab`으로 수락하면 됩니다.
 
 ---
 
@@ -29,6 +29,8 @@
 `src/main/java/com/example/todo/Todo.java` 파일을 생성하고, **아래 코드까지만 타이핑**한 뒤 멈추세요:
 
 ```java
+package com.example.todo;
+
 public class Todo {
     private Long id;
     private String title;
@@ -65,6 +67,12 @@ public class Todo {
 `src/main/java/com/example/todo/TodoController.java` — **한글 주석을 먼저 쓰고** 코드가 따라오는 패턴:
 
 ```java
+package com.example.todo;
+
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/todos")
 public class TodoController {
@@ -99,11 +107,32 @@ public class TodoController {
 
 ## 태스크 3: 서버 실행 & 수동 테스트 (5분)
 
+### 서버 실행
+
+**방법 1: IntelliJ에서 실행 (권장)**
+
+`TodoApplication.java` 파일을 열고 `main` 메서드 옆의 ▶️ 실행 버튼을 클릭합니다.
+
+> 📸 **[IntelliJ 스크린샷]** TodoApplication.java에서 main 메서드 옆의 ▶️ 실행 버튼을 클릭하여 서버를 시작하는 모습
+>
+> ![서버 실행](./images/step01-run-application.png)
+
+**방법 2: 터미널에서 실행**
+
 ```bash
 ./gradlew bootRun
 ```
 
-브라우저에서 확인 (Spring Boot는 기본적으로 Swagger가 없으므로 curl 사용):
+> 💡 JDK 관련 에러가 나면 Step 0의 [트러블슈팅](../step-00-setup/README.md#트러블슈팅)을 참고하거나, 경로를 직접 지정하세요:
+> ```bash
+> # macOS
+> ./gradlew bootRun -Dorg.gradle.java.home=/opt/homebrew/opt/openjdk@17
+>
+> # Windows (PowerShell)
+> .\gradlew bootRun -Dorg.gradle.java.home="C:\Program Files\Eclipse Adoptium\jdk-17"
+> ```
+
+### 수동 테스트
 
 ```bash
 # TODO 생성

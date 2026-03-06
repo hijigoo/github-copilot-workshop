@@ -98,6 +98,11 @@ Agent가 파일을 변경할 때마다 **diff를 확인**할 수 있습니다:
 ### entity/Todo.java
 
 ```java
+package com.example.todo.entity;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "todos")
 public class Todo {
@@ -130,6 +135,14 @@ public class Todo {
 ### repository/TodoRepository.java
 
 ```java
+package com.example.todo.repository;
+
+import com.example.todo.entity.Todo;
+import com.example.todo.entity.Priority;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 public interface TodoRepository extends JpaRepository<Todo, Long> {
     Page<Todo> findByPriority(Priority priority, Pageable pageable);
 }
