@@ -32,6 +32,17 @@ OpenJDK Runtime Environment ...
 
 `17` 이상의 버전이 출력되면 다음 단계로 넘어가세요! ✅
 
+### 설치된 JDK 버전 전체 확인
+
+여러 버전의 JDK가 설치되어 있을 수 있습니다. 현재 설치된 전체 목록을 확인하려면:
+
+| OS | 명령어 |
+|----|--------|
+| **macOS (Homebrew)** | `brew list \| grep openjdk` |
+| **macOS (전체 경로)** | `/usr/libexec/java_home -V` |
+| **Windows** | `where java` |
+| **Linux (Ubuntu)** | `update-alternatives --list java` |
+
 ### Java가 설치되어 있지 않다면?
 
 `java: command not found` 또는 버전이 17 미만이라면 JDK를 설치해야 합니다.
@@ -101,11 +112,13 @@ IntelliJ IDEA는 JDK를 직접 다운로드하는 기능을 제공합니다:
 ### 3. Copilot 로그인
 
 1. `Settings > Tools > GitHub Copilot` 으로 이동
-2. `Login to GitHub` 클릭
+   - Mac: `IntelliJ IDEA > Settings > Tools > GitHub Copilot`
+   - Windows: `File > Settings > Tools > GitHub Copilot`
+2. **General** 탭에서 `Sign in to GitHub Copilot` 클릭
 3. 브라우저에서 인증 코드 입력 후 로그인
 4. IntelliJ로 돌아오면 Copilot 활성화 완료
 
-> 📸 **[IntelliJ 스크린샷]** Settings > Tools > GitHub Copilot에서 "Login to GitHub" 버튼이 보이는 화면
+> 📸 **[IntelliJ 스크린샷]** Settings > Tools > GitHub Copilot > General에서 "Sign in to GitHub Copilot" 링크가 보이는 화면
 >
 > ![Copilot 로그인](./images/step00-copilot-login.png)
 
