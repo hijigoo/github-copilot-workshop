@@ -14,6 +14,67 @@
 
 ---
 
+## JDK 설치 확인
+
+### Java 설치 여부 확인
+
+터미널(또는 IntelliJ Terminal)에서 다음 명령어를 실행하세요:
+
+```bash
+java -version
+```
+
+**정상 출력 예시:**
+```
+openjdk version "17.0.x" 2024-xx-xx
+OpenJDK Runtime Environment ...
+```
+
+`17` 이상의 버전이 출력되면 다음 단계로 넘어가세요! ✅
+
+### Java가 설치되어 있지 않다면?
+
+`java: command not found` 또는 버전이 17 미만이라면 JDK를 설치해야 합니다.
+
+#### 방법 1: 직접 설치
+
+| OS | 설치 방법 |
+|----|----------|
+| **macOS** | `brew install openjdk@17` |
+| **Windows** | [Adoptium](https://adoptium.net/) 에서 JDK 17 다운로드 후 설치 |
+| **Linux (Ubuntu)** | `sudo apt install openjdk-17-jdk` |
+
+설치 후 `java -version`으로 다시 확인하세요.
+
+> 💡 macOS에서 Homebrew가 없다면: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
+#### 방법 2: Copilot Agent에게 설치 시키기 🤖
+
+Copilot Agent 모드를 사용하면 설치까지 한 번에 해결할 수 있습니다! IntelliJ Copilot Chat에서:
+
+```
+내 컴퓨터에 JDK 17이 설치되어 있는지 확인하고, 없으면 설치해줘
+```
+
+Agent가 터미널에서 `java -version`을 실행하여 확인하고, 설치되어 있지 않으면 OS에 맞는 설치 명령어를 직접 실행해 줍니다.
+
+> 💡 Agent 모드는 Step 5에서 자세히 배우지만, 이렇게 환경 세팅에도 활용할 수 있습니다!
+
+#### 방법 3: IntelliJ에서 JDK 자동 다운로드
+
+IntelliJ IDEA는 JDK를 직접 다운로드하는 기능을 제공합니다:
+
+1. `File > Project Structure > Project` (또는 `Ctrl+Alt+Shift+S`)
+2. **SDK** 드롭다운 → `Add SDK > Download JDK...`
+3. **Version**: `17`, **Vendor**: `Eclipse Temurin` (또는 원하는 벤더) 선택
+4. **Download** 클릭
+
+> 📸 **[IntelliJ 스크린샷]** Project Structure > SDK > Download JDK 화면에서 JDK 17을 선택하여 다운로드하는 모습
+>
+> ![IntelliJ JDK 다운로드](./images/step00-intellij-download-jdk.png)
+
+---
+
 ## IntelliJ IDEA 환경 세팅
 
 ### 1. IntelliJ IDEA 설치
