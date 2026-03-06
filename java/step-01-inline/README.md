@@ -1,0 +1,152 @@
+# Step 1. 코드 완성 (Inline Suggestions)
+
+> ⏱️ 20분 | 난이도 ⭐
+>
+> 🎯 **핵심 학습: Tab 자동완성 (Ghost Text)**
+>
+> **체감: "타이핑이 빨라졌다!"**
+
+---
+
+## 이전 단계 코드
+
+`starter/` 폴더 = Step 0 결과 (빈 Spring Boot 프로젝트)
+
+---
+
+## 왜 이게 첫 번째인가?
+
+가장 낮은 진입 장벽입니다.
+코드를 치는 도중에 AI가 **회색 텍스트(Ghost Text)**로 제안하는 것을 `Tab`으로 수락하면 됩니다.
+
+---
+
+## 태스크 1: TODO 모델 작성 (5분)
+
+`src/main/java/com/example/todo/Todo.java` 파일을 생성하고, **아래 코드까지만 타이핑**한 뒤 멈추세요:
+
+```java
+public class Todo {
+    private Long id;
+    private String title;
+    // ← 여기서 멈추고 Tab! Copilot이 나머지 필드를 제안합니다
+```
+
+### Copilot 조작법
+
+| 동작 | IntelliJ (Win/Linux) | IntelliJ (Mac) |
+|------|---------------------|----------------|
+| 제안 수락 | `Tab` | `Tab` |
+| 제안 거절 | `Esc` | `Esc` |
+| 다른 제안 | `Alt+]` / `Alt+[` | `Option+]` / `Option+[` |
+
+### 목표 모델들
+
+- `Todo` — 필드: id, title, description, completed, createdAt
+- 생성자, Getter/Setter (또는 record 사용)
+
+> 💡 **팁**: 필드 1~2개만 쓰면, Copilot이 나머지를 유추합니다.
+
+---
+
+## 태스크 2: CRUD 엔드포인트 작성 (10분)
+
+`src/main/java/com/example/todo/TodoController.java` — **한글 주석을 먼저 쓰고** 코드가 따라오는 패턴:
+
+```java
+@RestController
+@RequestMapping("/todos")
+public class TodoController {
+
+    private final List<Todo> todos = new ArrayList<>();
+    private long nextId = 1;
+
+    // 모든 TODO 목록을 반환하는 엔드포인트
+    // ← 주석을 쓰고 Enter 치면 메서드가 자동 생성됩니다!
+```
+
+### 만들어야 할 엔드포인트 4개
+
+| Method | Path | 설명 |
+|--------|------|------|
+| GET | `/todos` | 전체 목록 조회 |
+| POST | `/todos` | 새 TODO 생성 |
+| PUT | `/todos/{id}` | TODO 수정 |
+| DELETE | `/todos/{id}` | TODO 삭제 |
+
+**각 엔드포인트마다**:
+1. 한글 주석을 먼저 쓴다
+2. `@GetMapping` or `@PostMapping` 등을 시작한다
+3. Copilot 제안을 `Tab`으로 수락한다
+4. 필요하면 수정한다
+
+---
+
+## 태스크 3: 서버 실행 & 수동 테스트 (5분)
+
+```bash
+./gradlew bootRun
+```
+
+브라우저에서 확인 (Spring Boot는 기본적으로 Swagger가 없으므로 curl 사용):
+
+```bash
+# TODO 생성
+curl -X POST http://localhost:8080/todos \
+  -H "Content-Type: application/json" \
+  -d '{"title": "첫 번째 할일", "description": "테스트"}'
+
+# 목록 조회
+curl http://localhost:8080/todos
+
+# 수정
+curl -X PUT http://localhost:8080/todos/1 \
+  -H "Content-Type: application/json" \
+  -d '{"title": "수정된 할일", "completed": true}'
+
+# 삭제
+curl -X DELETE http://localhost:8080/todos/1
+```
+
+> 💡 Swagger UI를 원한다면 `springdoc-openapi-starter-webmvc-ui` 의존성을 추가하세요.
+
+---
+
+## ✅ 검증 체크리스트
+
+- [ ] Copilot이 모델 필드를 제안했고 수락함
+- [ ] 주석 → 메서드 패턴으로 엔드포인트 4개 완성
+- [ ] `./gradlew bootRun` 서버가 정상 실행
+- [ ] curl로 CRUD 모두 동작
+
+---
+
+## 🔧 에러가 나면? — Copilot으로 해결하기
+
+### 방법 1: Copilot Chat에 "에러 고쳐줘"
+
+1. IntelliJ 우측 사이드바 > GitHub Copilot Chat
+2. 에러 메시지를 붙여넣고:
+   ```
+   이 에러 수정해줘: [에러 메시지]
+   ```
+
+### 방법 2: 그래도 안 되면
+
+- `complete/` 폴더의 코드와 비교해 보세요
+- `complete/` 코드를 복사해서 진행해도 괜찮습니다 — 이번 단계의 목표는 **Inline Suggestion 체험**입니다
+
+---
+
+## 핵심 인사이트
+
+> **"주석/Javadoc이 곧 프롬프트다"**
+>
+> 의도를 명확히 쓸수록 Copilot의 제안이 정확합니다.
+> 주석 없이 빈 줄에서 `Tab`을 누르면 엉뚱한 코드가 나올 수 있습니다.
+
+---
+
+## 다음 단계
+
+→ [Step 2. Copilot Chat](../step-02-chat/README.md)

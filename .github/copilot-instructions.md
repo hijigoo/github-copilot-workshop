@@ -2,20 +2,31 @@
 
 ## Project Overview
 
-This is a **progressive tutorial workshop** that teaches GitHub Copilot features by building a TODO API. Each `step-XX-*` folder is a self-contained lesson with `starter/` (starting code) and `complete/` (reference answer). Steps 00–08 are the main track; 09–12 are bonus tracks (README-only guides).
+This is a **progressive tutorial workshop** that teaches GitHub Copilot features by building a TODO API. The workshop is available in two language tracks:
+
+- **`python/`** — Python + FastAPI + VS Code
+- **`java/`** — Java + Spring Boot + IntelliJ IDEA
+
+Each `step-XX-*` folder is a self-contained lesson with `starter/` (starting code) and `complete/` (reference answer). Steps 00–08 are the main track; 09–12 are bonus tracks (README-only guides).
 
 **This is educational content, not a production application.** When modifying code, preserve the progressive learning design — each step must only use Copilot features introduced up to that point.
 
 ## Language & Locale
 
-- All comments, docstrings, commit messages, error messages, and `HTTPException.detail` must be in **Korean**.
-- Docstrings follow **Google style** in Korean.
+- All comments, docstrings/Javadoc, commit messages, error messages must be in **Korean**.
+- Python docstrings follow **Google style** in Korean.
+- Java Javadoc follows standard Javadoc style in Korean.
 
 ## Tech Stack
 
+### Python Track
 - Python 3.11+, FastAPI, Pydantic v2 (`BaseModel`), SQLModel (ORM), SQLite (local file DB)
 - Testing: pytest + `FastAPI.testclient.TestClient` + httpx
-- No external services required — everything runs locally
+
+### Java Track
+- Java 17+, Spring Boot 3.x, Spring Data JPA, H2 Database
+- Build: Gradle (Kotlin DSL)
+- Testing: JUnit 5 + MockMvc + @SpringBootTest
 
 ## Architecture Patterns
 
