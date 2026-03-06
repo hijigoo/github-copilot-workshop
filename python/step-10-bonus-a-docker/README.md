@@ -36,8 +36,8 @@
 
 **💬 Copilot Agent:**
 ```
-#file:step-06-agent/complete/app/main.py
-#file:step-06-agent/complete/requirements.txt
+#file:step-05-agent/complete/app/main.py
+#file:step-05-agent/complete/requirements.txt
 
 위 Python FastAPI TODO 앱을 위한 Dockerfile을 만들어줘.
 
@@ -64,8 +64,8 @@ Copilot이 생성한 Dockerfile에서 다음 항목을 확인합니다:
 ### 1-3. 이미지 빌드 및 실행
 
 ```bash
-# step-06-agent/complete 디렉토리에서 실행
-cd step-06-agent/complete
+# step-05-agent/complete 디렉토리에서 실행
+cd step-05-agent/complete
 
 # Docker 이미지 빌드
 docker build -t todo-api .

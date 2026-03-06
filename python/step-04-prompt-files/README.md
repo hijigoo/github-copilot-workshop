@@ -212,4 +212,4 @@ Copilot Chat을 열고 (`Ctrl+Shift+I` / Mac: `Cmd+Shift+I`):
 
 ## 다음 단계
 
-→ [Step 6. Agent 모드](../step-06-agent/README.md)
+→ [Step 5. Agent 모드](../step-05-agent/README.md)

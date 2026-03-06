@@ -203,4 +203,4 @@ Agent가 만든 코드가 꼬였다면 `complete/` 폴더에서 시작하는 것
 
 ## 다음 단계
 
-→ [Step 7. Custom Agent 제작](../step-07-custom-agent/README.md)
+→ [Step 6. Custom Agent 제작](../step-06-custom-agent/README.md)

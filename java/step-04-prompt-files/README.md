@@ -164,4 +164,4 @@ description: "선택한 코드를 리팩토링합니다"
 
 ## 다음 단계
 
-→ [Step 6. Agent 모드](../step-06-agent/README.md)
+→ [Step 5. Agent 모드](../step-05-agent/README.md)

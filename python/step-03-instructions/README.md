@@ -217,4 +217,4 @@ applyTo: "app/**"
 
 ## 다음 단계
 
-→ [Step 4. Spec-Driven Development](../step-04-spec-driven/README.md)
+→ [Step 4. Prompt Files](../step-04-prompt-files/README.md)

@@ -63,7 +63,7 @@ def create_resource(data: ResourceCreate, session: Session = Depends(get_session
 
 ### Testing Pattern
 
-- Tests use **in-memory SQLite** via `conftest.py` dependency override (see `step-06-agent/complete/tests/conftest.py`)
+- Tests use **in-memory SQLite** via `conftest.py` dependency override (see `step-05-agent/complete/tests/conftest.py`)
 - Group tests by endpoint in classes: `TestCreateTodo`, `TestListTodos`, etc.
 - Use helper functions (`create_test_todo()`, `create_test_category()`) for test data setup
 - Cover: happy path, validation errors, edge cases, 404 scenarios
@@ -72,10 +72,10 @@ def create_resource(data: ResourceCreate, session: Session = Depends(get_session
 
 | Steps | Code style | DB | Key constraint |
 |-------|-----------|-----|----------------|
-| 01–05 | In-memory `list[dict]` | None | No database, no SQLModel |
-| 06–08 | SQLModel + Session | SQLite | Full ORM with `Depends(get_session)` |
+| 01–04 | In-memory `list[dict]` | None | No database, no SQLModel |
+| 05–09 | SQLModel + Session | SQLite | Full ORM with `Depends(get_session)` |
 
-When editing a specific step's code, use only patterns available at that step level. For example, step-03 code should not use `schemas.py` (introduced in step-04).
+When editing a specific step's code, use only patterns available at that step level. For example, step-03 code should not use `schemas.py` (introduced in step-09 SDD or via Agent in step-05).
 
 ## Developer Commands
 
@@ -88,7 +88,7 @@ uvicorn app.main:app --reload
 pytest -v
 
 # Run tests from workspace root for a specific step
-cd step-06-agent/complete && pytest -v
+cd step-05-agent/complete && pytest -v
 ```
 
 ## Copilot Config Files Inside Steps

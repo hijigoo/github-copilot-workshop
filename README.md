@@ -28,12 +28,12 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Agent, Custom
 | 01 | 코드 완성 | Tab 키로 Copilot 자동완성을 수락·거절하는 기본기 |
 | 02 | Copilot Chat | Chat 패널에서 대화로 코드 생성·리팩터링하기 |
 | 03 | Instructions | 프로젝트 규칙 파일을 만들어 반복 설명 없이 일관된 응답 받기 |
-| 04 | Spec-Driven Dev | 문서 기반 스펙 → 분석/계획 → 테스트 → 구현 순서로 정확한 코드 생성하기 |
-| 05 | Prompt Files | 반복 작업을 매크로처럼 한 번에 실행하는 프롬프트 파일 만들기 |
-| 06 | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
-| 07 | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
-| 08 | 고급 워크플로우 | Plan 기능 + Custom Agent 조합으로 Vibe Coding 실습 |
-| 09 | Multi-Agent | Agent 간 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
+| 04 | Prompt Files | 반복 작업을 매크로처럼 한 번에 실행하는 프롬프트 파일 만들기 |
+| 05 | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
+| 06 | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
+| 07 | 고급 워크플로우 | Plan 기능 + Custom Agent 조합으로 Vibe Coding 실습 |
+| 08 | Multi-Agent | Agent 간 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
+| 09 | Spec-Driven Dev | 문서 기반 스펙 → 분석/계획 → 테스트 → 구현으로 전체 스킬 종합 실습 |
 
 ### 보너스 트랙
 
