@@ -44,7 +44,7 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 | [01](step-01-inline/) | 코드 완성 | Tab 키로 Copilot 자동완성을 수락·거절하는 기본기 |
 | [02](step-02-chat/) | Copilot Chat | Chat 패널에서 대화로 코드 생성·리팩터링하기 |
 | [03](step-03-instructions/) | Instructions | 프로젝트 규칙 파일을 만들어 반복 설명 없이 일관된 응답 받기 |
-| [04](step-04-spec-driven/) | Spec-Driven Dev | 타입 정의 → 테스트 → 구현 순서로 정확한 코드 생성하기 |
+| [04](step-04-spec-driven/) | Spec-Driven Dev | 문서 기반 스펙 → 분석/계획 → 테스트 → 구현 순서로 정확한 코드 생성하기 |
 | [05](step-05-prompt-files/) | Prompt Files | 반복 작업을 매크로처럼 한 번에 실행하는 프롬프트 파일 만들기 |
 | [06](step-06-agent/) | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
 | [07](step-07-custom-agent/) | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
