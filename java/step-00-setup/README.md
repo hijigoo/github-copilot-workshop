@@ -191,7 +191,9 @@ BUILD SUCCESSFUL이 출력되면 성공! ✅
 .\gradlew build -Dorg.gradle.java.home="C:\Program Files\Eclipse Adoptium\jdk-17"
 ```
 
-그래도 해결되지 않으면 하단의 [🔧 빌드 에러가 나면?](#-빌드-에러가-나면)을 참고하세요.
+JDK 경로를 모르겠다면 [🔧 JDK 경로를 모르겠다면?](#-jdk-경로를-모르겠다면)을 참고하세요.
+위 방버으로 해결되지 않으면 하단의 [🔧 빌드 에러가 나면?](#-빌드-에러가-나면)을 참고하세요.
+
 
 ### Copilot 동작 확인
 
@@ -325,6 +327,27 @@ plugins {
 ```
 
 추가 후 다시 `./gradlew build`를 실행하세요.
+
+</details>
+
+<details>
+<summary><strong>🔧 JDK 경로를 모르겠다면?</strong></summary>
+
+IntelliJ가 사용 중인 실제 JDK 경로를 복사할 수 있습니다:
+
+1. `File > Project Structure` (Mac: `Cmd + ;` / Windows: `Ctrl + Alt + Shift + S`)
+2. 좌측 메뉴에서 **SDKs** 클릭
+3. JDK 17 선택 → **JDK home path**에 표시된 경로를 복사
+
+이 경로를 터미널 빌드 시 사용하세요:
+
+```bash
+# macOS — 복사한 경로를 그대로 사용
+./gradlew build -Dorg.gradle.java.home=/복사한/경로
+
+# Windows (PowerShell)
+.\gradlew build -Dorg.gradle.java.home="복사한\경로"
+```
 
 </details>
 
