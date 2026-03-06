@@ -65,6 +65,10 @@ specify init . --ai copilot
 - [ ] `specify init` 후 `.github/` 아래에 어떤 파일이 생성되는가?
 - [ ] 슬래시 명령어 프롬프트 파일들이 생성되었는가?
 
+> 📸 **[IntelliJ 스크린샷]** `specify init` 실행 후 `.github/` 폴더 아래에 생성된 Spec Kit 관련 파일들이 IntelliJ Project 탐색기에 표시된 모습
+>
+> ![Spec Kit 초기화 결과](./images/step14-speckit-init.png)
+
 ---
 
 ## 🏗️ 실습 2: Constitution → Specify → Plan (10분)
@@ -108,6 +112,10 @@ JUnit 5 + MockMvc로 테스트하고, Gradle(Kotlin DSL)로 빌드해.
 - [ ] Constitution → Specify → Plan 순서로 아티팩트가 쌓이는 과정
 - [ ] Plan에서 Spring Boot 기술 스택이 반영된 구체적인 설계가 나오는가?
 - [ ] Step 04에서 수동으로 했던 것과 비교해 어떤 차이가 있는가?
+
+> 📸 **[IntelliJ 스크린샷]** Chat에서 `/speckit.specify` → `/speckit.plan` 순서로 실행하여 스펙과 기술 설계가 생성된 Chat 패널 화면
+>
+> ![Spec Kit 워크플로우](./images/step14-speckit-workflow.png)
 
 ---
 

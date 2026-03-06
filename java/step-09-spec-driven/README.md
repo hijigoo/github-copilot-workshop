@@ -1,20 +1,23 @@
-# Step 4. Spec-Driven Development (SDD)
+# Step 9. Spec-Driven Development (SDD)
 
 > ⏱️ 25분 | 난이도 ⭐⭐
 >
 > 🎯 **핵심 학습: 문서 기반 스펙 → 테스트 → 구현 패턴**
 >
-> **체감: "스펙 문서를 먼저 쓰니 AI가 놀랍도록 정확하다!"**
+> **체감: "스펙 문서를 먼저 쓰니 AI가 놀락도록 정확하다!"**
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 3 완성 코드 (copilot-instructions.md + 경로 지정 지침 설정)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 3 완성 코드 (copilot-instructions.md + 경로 지정 지침 설정) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
-## 왜 네 번째인가?
+## SDD란?
 
 Instructions로 **스타일**을 잡았다면, SDD로 **정확도**를 극대화합니다.
 
@@ -65,6 +68,10 @@ src/main/java/com/example/todo/
 src/test/java/com/example/todo/
 └── TodoControllerTest.java ← 테스트 (Agent가 스펙에서 생성)
 ```
+
+> 📸 **[IntelliJ 스크린샷]** IntelliJ Project 탐색기에서 `.specs/` 폴더와 `context/` 폴더가 프로젝트 루트에 생성된 모습
+>
+> ![SDD 폴더 구조](./images/step09-sdd-folder-structure.png)
 
 ---
 
@@ -168,7 +175,7 @@ src/test/java/com/example/todo/
 | updatedAt | LocalDateTime | 자동 | 수정 시각 (수정 시 갱신) |
 
 ## 저장소
-- 현재 단계: 인메모리 ArrayList (Step 6에서 H2 DB + JPA로 전환 예정)
+- 현재 단계: 인메모리 ArrayList (Step 5에서 H2 DB + JPA로 전환 예정)
 ```
 
 ### 관찰 포인트
@@ -211,6 +218,10 @@ Copilot Chat(Agent 모드)에서:
 - [ ] Agent가 스펙의 모호한 부분을 지적하는가?
 - [ ] `context/todo.md`에 체계적인 구현 계획이 작성되었는가?
 - [ ] DTO record, Controller 등 파일별 역할이 명확히 정리되었는가?
+
+> 📸 **[IntelliJ 스크린샷]** Agent가 `.specs/` 문서를 읽고 분석한 후 `context/todo.md`에 구현 계획을 작성한 결과물이 IntelliJ 에디터에 표시된 모습
+>
+> ![Agent 구현 계획](./images/step09-context-plan.png)
 
 ---
 

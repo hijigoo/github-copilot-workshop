@@ -1,4 +1,4 @@
-# Step 7. Custom Agent 제작
+# Step 6. Custom Agent 제작
 
 > ⏱️ 25분 | 난이도 ⭐⭐⭐
 >
@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 6 완성 코드 (Spring Data JPA + H2 연동 완료)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 5 완성 코드 (Spring Data JPA + H2 연동 완료) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
@@ -25,6 +28,10 @@ Chat에서 Agent 드롭다운을 통해 호출할 수 있습니다.
 ├── sdd.agent.md           → @sdd 로 호출
 └── refactor.agent.md      → @refactor 로 호출
 ```
+
+> 📸 **[IntelliJ 스크린샷]** IntelliJ Project 탐색기에서 `.github/agents/` 폴더와 그 안의 `.agent.md` 파일들이 보이는 모습
+>
+> ![Agent 폴더 구조](./images/step06-agents-folder.png)
 
 ### Agent 프로필 구조
 
@@ -119,6 +126,10 @@ Chat 하단의 Agent 선택 버튼에서 `reviewer`를 선택한 후:
 #file:TodoController.java 이 코드를 리뷰해줘
 ```
 
+> 📸 **[IntelliJ 스크린샷]** Chat 하단의 Agent 선택 드롭다운에서 `reviewer`, `sdd`, `refactor` 등 Custom Agent 목록이 표시되는 화면
+>
+> ![Agent 선택 드롭다운](./images/step06-agent-dropdown.png)
+
 ---
 
 ## 태스크 2: SDD 전문 Agent — @sdd (7분)
@@ -172,6 +183,10 @@ Chat 하단의 Agent 선택 버튼에서 `sdd`를 선택한 후:
 ```
 TODO에 태그(tags) 기능을 추가해줘. 하나의 TODO에 여러 태그를 붙일 수 있어야 해.
 ```
+
+> 📸 **[IntelliJ 스크린샷]** `@sdd` Agent를 선택하고 기능 요청을 입력한 후, Agent가 SPEC→TEST→IMPL→VERIFY 순서로 실행하는 Chat 패널 화면
+>
+> ![@sdd Agent 실행](./images/step06-sdd-agent-execution.png)
 
 ---
 

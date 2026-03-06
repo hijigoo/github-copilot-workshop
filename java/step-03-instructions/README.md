@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 2 완성 코드 (Javadoc + 테스트 포함 TODO API)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 2 완성 코드 (Javadoc + 테스트 포함 TODO API) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
@@ -37,6 +40,10 @@ Copilot은 다음 유형의 사용자 지정 지침 파일을 지원합니다:
     ├── testing.instructions.md      ← tests/** 에서만 적용
     └── api.instructions.md          ← controller/** 에서만 적용
 ```
+
+> 📸 **[IntelliJ 스크린샷]** IntelliJ Project 탐색기에서 `.github/` 폴더 구조와 `copilot-instructions.md`, `instructions/` 폴더가 보이는 모습
+>
+> ![Instructions 폴더 구조](./images/step03-instructions-folder.png)
 
 > 📖 자세한 내용: [GitHub Copilot에 대한 리포지토리 사용자 지정 지침 추가하기](https://docs.github.com/ko/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode)
 
@@ -168,6 +175,10 @@ applyTo: "**/controller/**"
 - [ ] `// Given:` / `// When:` / `// Then:` 주석이 있는가?
 - [ ] `@Nested` 클래스로 그룹핑 되었는가?
 
+> 📸 **[IntelliJ 스크린샷]** 테스트 파일에서 Chat으로 테스트 생성을 요청했을 때, `testing.instructions.md` 지침이 반영된 결과 — `test_동작_조건_결과()` 네이밍과 Given-When-Then 패턴이 적용된 모습
+>
+> ![테스트 지침 적용 결과](./images/step03-testing-instructions-result.png)
+
 **② API 코드 지침 확인** — Controller 파일을 열고 Chat에 입력:
 
 > "GET /todos/{id} 단건 조회 엔드포인트를 추가해줘"
@@ -176,6 +187,10 @@ applyTo: "**/controller/**"
 - [ ] `@ResponseStatus` 지정되어 있는가?
 - [ ] 에러 메시지가 한국어인가? (예: `"TODO를 찾을 수 없습니다"`)
 - [ ] Javadoc이 한국어로 작성되었는가?
+
+> 📸 **[IntelliJ 스크린샷]** Controller 파일에서 Chat으로 엔드포인트 추가를 요청했을 때, `api.instructions.md` 지침이 반영된 결과 — 한국어 에러 메시지와 @ResponseStatus가 적용된 모습
+>
+> ![API 지침 적용 결과](./images/step03-api-instructions-result.png)
 
 ---
 

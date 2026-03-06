@@ -1,4 +1,4 @@
-# Step 9. Multi-Agent 워크플로우
+# Step 8. Multi-Agent 워크플로우
 
 > ⏱️ 25분 | 난이도 ⭐⭐⭐
 >
@@ -8,24 +8,24 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 8 완성 코드 (Plan + Custom Agent 조합 워크플로우)
+Step 7 완성 코드 (Plan + Custom Agent 조합 워크플로우) 위에서 이어서 진행합니다. 이 스텝은 README 가이드만 제공합니다.
 
 ---
 
 ## 왜 Multi-Agent인가?
 
-Step 7에서 `@reviewer`, `@sdd`, `@refactor` 같은 Custom Agent를 **개별로** 호출했습니다.
-Step 8에서는 Plan + Agent를 **순차적으로** 조합했습니다.
+Step 6에서 `@reviewer`, `@sdd`, `@refactor` 같은 Custom Agent를 **개별로** 호출했습니다.
+Step 7에서는 Plan + Agent를 **순차적으로** 조합했습니다.
 
 이번 스텝에서는 **하나의 Agent가 다른 Agent를 호출하는 연쇄 워크플로우**를 만듭니다.
 
 | 단계 | 방식 | 비유 |
 |------|------|------|
-| Step 7 | 개별 Agent 호출 | 팀원 한 명에게 개별 지시 |
-| Step 8 | 순차적 Agent 조합 | 팀장이 팀원에게 순서대로 지시 |
-| **Step 9** | **Agent 간 연쇄 호출** | **팀이 자율적으로 협업** |
+| Step 6 | 개별 Agent 호출 | 팀원 한 명에게 개별 지시 |
+| Step 7 | 순차적 Agent 조합 | 팀장이 팀원에게 순서대로 지시 |
+| **Step 8** | **Agent 간 연쇄 호출** | **팀이 자율적으로 협업** |
 
 ---
 
@@ -251,6 +251,10 @@ TODO 앱에 "즐겨찾기(favorite)" 기능을 추가해줘.
 - 즐겨찾기된 TODO가 목록 상단에 표시
 ```
 
+> 📸 **[IntelliJ 스크린샷]** Chat 하단의 Agent 선택 드롭다운에서 `orchestrator`를 선택하는 화면
+>
+> ![Orchestrator Agent 선택](./images/step08-orchestrator-select.png)
+
 ### 3-2. 파이프라인 관찰
 
 Agent가 4단계를 순서대로 실행하는 과정을 관찰합니다:
@@ -262,18 +266,22 @@ Agent가 4단계를 순서대로 실행하는 과정을 관찰합니다:
 | 3 | Developer | Controller, Service, Repository 구현 + 테스트 통과 |
 | 4 | Reviewer | 코드 품질 리뷰 + 개선 사항 |
 
+> 📸 **[IntelliJ 스크린샷]** Orchestrator Agent가 Phase 1→4 파이프라인을 순서대로 실행하며 각 Phase 완료 시 요약을 출력하는 Chat 패널 화면
+>
+> ![Multi-Agent 파이프라인 실행](./images/step08-pipeline-execution.png)
+
 ### 3-3. 개별 Agent와 비교
 
 같은 기능을 **개별 Agent**로 구현할 때와 비교해 보세요:
 
 ```
-# 이전 방식 (Step 7): 수동으로 하나씩 호출
+# 이전 방식 (Step 6): 수동으로 하나씩 호출
 @architect  → 설계해줘
 @tester     → 테스트 작성해줘
 @developer  → 구현해줘
 @reviewer   → 리뷰해줘
 
-# Multi-Agent 방식 (Step 9): 한 번에 전체 파이프라인
+# Multi-Agent 방식 (Step 8): 한 번에 전체 파이프라인
 @orchestrator → 즐겨찾기 기능 추가해줘
 ```
 

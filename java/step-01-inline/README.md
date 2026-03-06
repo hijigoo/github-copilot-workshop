@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` 폴더 = Step 0 결과 (빈 Spring Boot 프로젝트)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 0 결과 (빈 Spring Boot 프로젝트) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
@@ -32,6 +35,10 @@ public class Todo {
     // ← 여기서 멈추고 Tab! Copilot이 나머지 필드를 제안합니다
 ```
 
+> 📸 **[IntelliJ 스크린샷]** Todo 클래스에서 필드 2개를 입력한 후 Copilot이 나머지 필드(description, completed, createdAt 등)를 Ghost Text로 제안하는 모습
+>
+> ![Todo 모델 Ghost Text](./images/step01-todo-ghost-text.png)
+
 ### Copilot 조작법
 
 | 동작 | IntelliJ (Win/Linux) | IntelliJ (Mac) |
@@ -39,6 +46,10 @@ public class Todo {
 | 제안 수락 | `Tab` | `Tab` |
 | 제안 거절 | `Esc` | `Esc` |
 | 다른 제안 | `Alt+]` / `Alt+[` | `Option+]` / `Option+[` |
+
+> 📸 **[IntelliJ 스크린샷]** Copilot이 제안한 Ghost Text(회색)를 Tab으로 수락하기 전/후 비교 화면
+>
+> ![Ghost Text 수락](./images/step01-accept-suggestion.png)
 
 ### 목표 모델들
 
@@ -64,6 +75,10 @@ public class TodoController {
     // 모든 TODO 목록을 반환하는 엔드포인트
     // ← 주석을 쓰고 Enter 치면 메서드가 자동 생성됩니다!
 ```
+
+> 📸 **[IntelliJ 스크린샷]** 한글 주석을 작성한 후 Enter를 치면 Copilot이 해당 엔드포인트 메서드를 자동으로 제안하는 모습
+>
+> ![주석으로 코드 생성](./images/step01-comment-to-code.png)
 
 ### 만들어야 할 엔드포인트 4개
 

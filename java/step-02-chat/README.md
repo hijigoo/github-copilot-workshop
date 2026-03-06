@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 1 완성 코드 (인메모리 CRUD TODO API)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 1 완성 코드 (인메모리 CRUD TODO API) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
@@ -26,6 +29,10 @@ Step 1에서 수동으로 코드를 작성했으니, 이제 **대화**로 코드
 | IDE | 방법 |
 |-----|------|
 | IntelliJ | 우측 사이드바 > GitHub Copilot Chat |
+
+> 📸 **[IntelliJ 스크린샷]** IntelliJ 우측 사이드바에서 GitHub Copilot Chat 탭을 클릭하여 여는 모습
+>
+> ![Chat 패널 열기](./images/step02-open-chat.png)
 
 ---
 
@@ -58,6 +65,10 @@ Chat에 입력:
 @workspace 이 프로젝트에 Spring Data JPA를 적용하려면 어떻게 해야 하나요?
 ```
 
+> 📸 **[IntelliJ 스크린샷]** Chat 입력창에 `@workspace` 명령을 입력하고 프로젝트 맥락이 반영된 답변을 받는 화면
+>
+> ![@workspace 사용](./images/step02-at-workspace.png)
+
 **관찰**: `@workspace`가 프로젝트의 파일 구조와 의존성을 분석하여 맞춤 답변을 합니다.
 
 ---
@@ -69,6 +80,10 @@ Chat에 입력:
 ```
 /explain #file:TodoController.java 한국어로 설명해줘
 ```
+
+> 📸 **[IntelliJ 스크린샷]** Chat에서 `#file:TodoController.java`로 파일을 지정하여 코드 설명을 받는 화면
+>
+> ![#file 코드 설명](./images/step02-file-explain.png)
 
 **관찰**: `#file:`로 파일을 지정하면 Copilot이 해당 파일의 구조와 각 엔드포인트의 역할을 한국어로 설명합니다.
 
@@ -92,6 +107,10 @@ newTodo.setCompleted(true);                   // ← 버그! 기본값이 true
 /fix
 ```
 
+> 📸 **[IntelliJ 스크린샷]** 버그가 있는 코드를 선택한 상태에서 `/fix` 명령을 실행하고 Copilot이 수정 제안을 하는 화면
+>
+> ![/fix 명령](./images/step02-fix-command.png)
+
 **관찰**: Copilot이 잘못된 필드 매핑과 기본값을 정확히 찾아냅니다.
 
 ---
@@ -101,6 +120,10 @@ newTodo.setCompleted(true);                   // ← 버그! 기본값이 true
 ```
 /tests #file:TodoController.java
 ```
+
+> 📸 **[IntelliJ 스크린샷]** `/tests` 명령으로 Copilot이 JUnit 5 + MockMvc 기반 테스트 코드를 자동 생성하는 화면
+>
+> ![/tests 명령](./images/step02-tests-command.png)
 
 **관찰**: Copilot이 JUnit 5 + MockMvc 기반 테스트를 작성합니다.
 

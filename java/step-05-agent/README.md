@@ -1,4 +1,4 @@
-# Step 6. Agent에게 복잡한 작업 위임하기
+# Step 5. Agent에게 복잡한 작업 위임하기
 
 > ⏱️ 25분 | 난이도 ⭐⭐⭐
 >
@@ -8,9 +8,12 @@
 
 ---
 
-## 이전 단계 코드
+## 코드 폴더
 
-`starter/` = Step 5 완성 코드 (Prompt Files + dueDate 기능 포함)
+| 폴더 | 설명 |
+|------|------|
+| `starter/` | Step 4 완성 코드 (Prompt Files + dueDate 기능 포함) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
 ---
 
@@ -20,6 +23,10 @@
 아직 전환하지 않았다면:
 
 - **IntelliJ**: Copilot Chat 탭에서 Agent 모드 활성화
+
+> 📸 **[IntelliJ 스크린샷]** Copilot Chat 탭에서 Agent 모드를 활성화하는 위치와 방법 (Agent 모드 토글 버튼 또는 드롭다운)
+>
+> ![Agent 모드 활성화](./images/step05-agent-mode.png)
 
 ---
 
@@ -67,12 +74,20 @@ TODO 앱에 H2 데이터베이스를 연동해줘.
 
 > 💡 단일 파일 수정이 아닌 **7단계 연쇄 작업**을 하나의 프롬프트로 수행합니다.
 
+> 📸 **[IntelliJ 스크린샷]** Agent가 여러 파일을 순차적으로 생성/수정하며 작업하는 Chat 패널 화면 — entity, repository, service, controller 파일이 순서대로 처리되는 모습
+>
+> ![Agent 연쇄 작업](./images/step05-agent-chain-work.png)
+
 ### ⚠️ 중요: 승인/거부
 
 Agent가 파일을 변경할 때마다 **diff를 확인**할 수 있습니다:
 - ✅ **Accept** — 변경 적용
 - ❌ **Reject** — 변경 거부
 - 📝 **수정 요청** — "이 부분은 다르게 해줘"
+
+> 📸 **[IntelliJ 스크린샷]** Agent가 파일을 변경할 때 표시되는 diff 뷰 — Accept/Reject 버튼이 보이는 화면
+>
+> ![Agent diff 확인](./images/step05-agent-diff-review.png)
 
 > **팁**: 한 번에 모든 변경을 수락하지 말고, 파일별로 리뷰하세요!
 

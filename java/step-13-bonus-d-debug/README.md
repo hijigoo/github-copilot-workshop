@@ -13,6 +13,10 @@
 
 > 💡 Chat Debug View는 현재 VS Code에서 지원됩니다. IntelliJ에서는 VS Code를 추가로 사용하거나, IntelliJ의 Copilot 로그를 확인하는 방식으로 대체할 수 있습니다.
 
+> 📸 **[IntelliJ 스크린샷]** IntelliJ에서 Help > Diagnostic Tools > Debug Log Settings 또는 Copilot 로그를 확인하는 방법. 또는 VS Code에서 `Developer: Show Chat Debug View`를 실행한 화면
+>
+> ![Chat Debug View](./images/step13-debug-view.png)
+
 ---
 
 ## 실습 개요
