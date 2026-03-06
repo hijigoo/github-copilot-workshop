@@ -147,7 +147,11 @@ Agent의 응답 품질이 떨어지는 것을 느끼면 — 이것이 **Context 
 축하합니다! 🎉 메인 트랙의 모든 단계를 완료했습니다!
 
 **보너스 트랙**으로 넘어가세요:
-- **[Step 09 — Docker](../step-09-bonus-a-docker/README.md)**: Copilot으로 Docker 컨테이너화 (Layered Jar)
-- **[Step 10 — React.js 프론트엔드](../step-10-bonus-b-react/README.md)**: TODO API를 소비하는 React UI
-- **[Step 11 — 레거시 마이그레이션](../step-11-bonus-c-migration/README.md)**: 클래식 ASP 레거시 코드를 Java로 전환
-- **[Step 12 — Chat Debug View](../step-12-bonus-d-debug/README.md)**: Copilot 내부 동작 분석
+→ [Step 9. Multi-Agent 워크플로우](../step-09-multi-agent/README.md)
+
+또는 **보너스 트랙**으로 넘어가세요:
+- **[Step 10 — Docker](../step-10-bonus-a-docker/README.md)**: Copilot으로 Docker 컨테이너화 (Layered Jar)
+- **[Step 11 — React.js 프론트엔드](../step-11-bonus-b-react/README.md)**: TODO API를 소비하는 React UI
+- **[Step 12 — 레거시 마이그레이션](../step-12-bonus-c-migration/README.md)**: 클래식 ASP 레거시 코드를 Java로 전환
+- **[Step 13 — Chat Debug View](../step-13-bonus-d-debug/README.md)**: Copilot 내부 동작 분석
+- **[Step 14 — Spec Kit](../step-14-bonus-e-speckit/README.md)**: Spec-Driven Development 자동화

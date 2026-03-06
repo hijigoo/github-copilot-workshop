@@ -33,16 +33,17 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Agent, Custom
 | 06 | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
 | 07 | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
 | 08 | 고급 워크플로우 | Plan 기능 + Custom Agent 조합으로 Vibe Coding 실습 |
+| 09 | Multi-Agent | Agent 간 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
 
 ### 보너스 트랙
 
 | Step | 주제 | 무엇을 배우나요? |
 |:----:|------|-----------------|
-| 09 | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
-| 10 | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 |
-| 11 | 레거시 마이그레이션 | 레거시 코드(클래식 ASP 등)를 현대적 언어로 전환 체험 |
-| 12 | Chat Debug View | Chat Debug View로 Copilot 내부 동작 분석 |
-| 13 | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
+| 10 | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
+| 11 | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 |
+| 12 | 레거시 마이그레이션 | 레거시 코드(클래식 ASP 등)를 현대적 언어로 전환 체험 |
+| 13 | Chat Debug View | Chat Debug View로 Copilot 내부 동작 분석 |
+| 14 | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
 
 ---
 

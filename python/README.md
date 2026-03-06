@@ -30,7 +30,7 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 ## 프로젝트 구조
 
 각 스텝 폴더는 `README.md`(가이드) + `starter/`(시작 코드) + `complete/`(완성 코드)로 구성됩니다.
-보너스 트랙(09~12)은 README 가이드만 제공하는 자율 실습입니다.
+보너스 트랙(10~14)은 README 가이드만 제공하는 자율 실습입니다.
 
 ---
 
@@ -49,16 +49,17 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 | [06](step-06-agent/) | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
 | [07](step-07-custom-agent/) | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
 | [08](step-08-advanced/) | 고급 워크플로우 | Plan 기능 + Custom Agent 조합으로 Vibe Coding 실습 |
+| [09](step-09-multi-agent/) | Multi-Agent | Agent 간 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
 
 ### 보너스 트랙
 
 | Step | 주제 | 무엇을 배우나요? |
 |:----:|------|-----------------|
-| [09](step-09-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
-| [10](step-10-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
-| [11](step-11-bonus-c-spring/) | Spring Boot 백엔드 | 같은 TODO API를 Java로 다시 구현하며 언어 전환 체험 |
-| [12](step-12-bonus-d-debug/) | Chat Debug View | Chat Debug View로 Copilot 내부 동작(System Prompt, Context 등) 분석 |
-| [13](step-13-bonus-e-speckit/) | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
+| [10](step-10-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
+| [11](step-11-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
+| [12](step-12-bonus-c-spring/) | Spring Boot 백엔드 | 같은 TODO API를 Java로 다시 구현하며 언어 전환 체험 |
+| [13](step-13-bonus-d-debug/) | Chat Debug View | Chat Debug View로 Copilot 내부 동작(System Prompt, Context 등) 분석 |
+| [14](step-14-bonus-e-speckit/) | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
 
 ---
 

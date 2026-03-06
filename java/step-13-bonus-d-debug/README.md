@@ -22,7 +22,7 @@
 3. Instructions 적용 여부 확인
 4. 컨텍스트 누락 진단
 
-> 상세 실습 가이드는 [Python 버전의 Step 12](../../python/step-12-bonus-d-debug/README.md)를 참고하세요.
+> 상세 실습 가이드는 [Python 버전의 Step 13](../../python/step-13-bonus-d-debug/README.md)를 참고하세요.
 > IDE에 따라 접근 방식만 다를 뿐, 핵심 개념은 동일합니다.
 
 ---
