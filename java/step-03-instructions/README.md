@@ -45,7 +45,14 @@ Copilot은 다음 유형의 사용자 지정 지침 파일을 지원합니다:
 >
 > ![Instructions 폴더 구조](./images/step03-instructions-folder.png)
 
-> 📖 자세한 내용: [GitHub Copilot에 대한 리포지토리 사용자 지정 지침 추가하기](https://docs.github.com/ko/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode)
+> � **설정에서 지침 확인하기**
+>
+> IntelliJ 설정에서 등록된 지침 파일을 확인할 수 있습니다:
+> **Settings** (`Windows/Linux: Ctrl+Alt+S`, `macOS: Cmd+,`) → **Tools** → **GitHub Copilot** → **Customizations**
+>
+> ![IntelliJ Copilot Customizations 설정](./images/step03-intellij-customizations.png)
+
+> �📖 자세한 내용: [GitHub Copilot에 대한 리포지토리 사용자 지정 지침 추가하기](https://docs.github.com/ko/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode)
 
 ---
 
@@ -61,31 +68,26 @@ Copilot은 다음 유형의 사용자 지정 지침 파일을 지원합니다:
 - 코드 주석, Javadoc도 한국어
 
 ## 기술 스택
-- Java 17+ / Spring Boot 3.x / Spring Data JPA
-- DB: H2 (개발), PostgreSQL (프로덕션)
+- Java 17+ / Spring Boot 3.x / Spring Web
+- 데이터 저장: 인메모리 List (ArrayList)
 - 테스트: JUnit 5 + MockMvc + @SpringBootTest
 - 빌드: Gradle (Kotlin DSL)
 
-## 코드 스타일 & 네이밍 컨벤션
-- 패키지명: 소문자 (예: com.example.todo.controller)
-- 클래스명: PascalCase (예: TodoController, TodoService)
+## 코드 스타일
+- 클래스명: PascalCase (예: TodoController)
 - 메서드명: camelCase (예: createTodo, findById)
-- 상수: UPPER_SNAKE_CASE (예: MAX_PAGE_SIZE)
-- DTO: record 클래스 사용, 용도별 접미사
-  - 생성 요청: XxxCreateRequest (예: TodoCreateRequest)
-  - 수정 요청: XxxUpdateRequest (예: TodoUpdateRequest)
-  - 응답: XxxResponse (예: TodoResponse)
-- 테스트 메서드: test_동작_조건_결과() (예: test_createTodo_returns201)
-
-## 아키텍처
-- Controller → Service → Repository 레이어 구조
-- Entity와 DTO를 분리 (entity/ vs dto/)
-- @Valid로 요청 검증
+- 상수: UPPER_SNAKE_CASE (예: MAX_TITLE_LENGTH)
+- 테스트 메서드: test_동작_조건_결과() (예: test_createTodo_withValidData_returns201)
 
 ## API 규칙
 - RESTful 엔드포인트
+- @ResponseStatus로 상태 코드 명시 (CREATED, NO_CONTENT 등)
 - 에러는 ResponseStatusException으로 처리
 - 에러 메시지는 한국어
+
+## 테스트 규칙
+- @Nested 클래스로 엔드포인트별 그룹핑
+- Given-When-Then 주석 패턴 사용
 ```
 
 ---
@@ -164,9 +166,35 @@ applyTo: "**/controller/**"
 - 반환 타입은 DTO (Entity 직접 반환 금지)
 ```
 
-### 검증: 경로 지정 지침 동작 확인
+---
 
-**① 테스트 지침 확인** — 테스트 파일을 열고 Chat에 입력:
+## 태스크 3: 지침 동작 실습 및 검증 (10분)
+
+태스크 1, 2에서 생성한 지침 파일들이 실제로 Copilot에 올바르게 적용되는지 확인합니다.
+
+### ① 리포지토리 전체 지침 동작 확인
+
+`TodoControllerTest.java` 파일을 열고 Chat에 입력:
+
+> "Instructions에 설정된 규칙을 설명해주고, 그 규칙에 맞게 프로젝트를 리팩토링해줘"
+
+→ 현재 테스트 코드에는 `@Nested` 그룹핑이나 Given-When-Then 주석이 없습니다. 지침이 적용되면 다음이 변경됩니다:
+
+- [ ] 테스트 메서드명이 `test_동작_조건_결과()` 패턴으로 변경되었는가? (예: `test_createTodo_withValidData_returns201`)
+- [ ] `@Nested` 클래스로 엔드포인트별 그룹핑이 추가되었는가?
+- [ ] `// Given:` / `// When:` / `// Then:` 주석 패턴이 추가되었는가?
+
+> 📸 **[IntelliJ 스크린샷]** Chat에 리팩토링을 요청했을 때, `copilot-instructions.md`의 프로젝트 규칙이 반영된 결과 — `@Nested` 그룹핑, Given-When-Then 주석, 영문 테스트 네이밍이 적용된 모습
+>
+> ![전체 지침 적용 결과](./images/step03-global-instructions-result.png)
+
+### ② 테스트 경로 지정 지침 확인
+
+기존 테스트 코드를 삭제한 후 새로 생성하여 지침 적용을 확인합니다.
+
+먼저 `TodoControllerTest.java`가 있다면 코드를 모두 삭제하고 진행합니다.
+
+그 다음 테스트 파일을 열고 Chat에 입력:
 
 > "TodoController에 대한 테스트를 작성해줘"
 
@@ -179,16 +207,17 @@ applyTo: "**/controller/**"
 >
 > ![테스트 지침 적용 결과](./images/step03-testing-instructions-result.png)
 
-**② API 코드 지침 확인** — Controller 파일을 열고 Chat에 입력:
+### ③ API 코드 경로 지정 지침 확인
 
-> "GET /todos/{id} 단건 조회 엔드포인트를 추가해줘"
+`TodoController.java` 파일을 열고 Chat에 입력:
 
-→ 확인 포인트:
-- [ ] `@ResponseStatus` 지정되어 있는가?
-- [ ] 에러 메시지가 한국어인가? (예: `"TODO를 찾을 수 없습니다"`)
-- [ ] Javadoc이 한국어로 작성되었는가?
+> "PATCH /todos/{id} 부분 수정 엔드포인트를 추가해줘"
 
-> 📸 **[IntelliJ 스크린샷]** Controller 파일에서 Chat으로 엔드포인트 추가를 요청했을 때, `api.instructions.md` 지침이 반영된 결과 — 한국어 에러 메시지와 @ResponseStatus가 적용된 모습
+→ `api.instructions.md`의 고유 규칙이 추가 적용되는지 확인합니다:
+- [ ] Controller가 Service에 위임하는 구조인가? (기존 코드는 Controller에서 직접 처리)
+- [ ] 반환 타입이 DTO인가? (기존 코드는 `Todo` 객체를 직접 반환)
+
+> 📸 **[IntelliJ 스크린샷]** `api.instructions.md` 지침이 반영된 엔드포인트 생성 결과
 >
 > ![API 지침 적용 결과](./images/step03-api-instructions-result.png)
 
@@ -196,9 +225,17 @@ applyTo: "**/controller/**"
 
 ## ✅ 검증 체크리스트
 
-- [ ] `.github/copilot-instructions.md` (리포지토리 전체 지침) 생성 완료
-- [ ] `.github/instructions/testing.instructions.md` (경로 지정 지침) 생성
-- [ ] `.github/instructions/api.instructions.md` (경로 지정 지침) 생성
+### 태스크 1: 리포지토리 전체 지침
+- [ ] `.github/copilot-instructions.md` 파일 생성 완료
+
+### 태스크 2: 경로 지정 지침
+- [ ] `.github/instructions/testing.instructions.md` 생성 완료
+- [ ] `.github/instructions/api.instructions.md` 생성 완료
+
+### 태스크 3: 지침 동작 실습 및 검증
+- [ ] 리포지토리 전체 지침 적용 확인: `@Nested` 그룹핑, Given-When-Then 주석, 테스트 네이밍 변경 등이 반영됨
+- [ ] 테스트 경로 지정 지침 확인: `test_동작_조건_결과()` 네이밍 패턴, Given-When-Then 주석 적용됨
+- [ ] API 경로 지정 지침 확인: Service 위임 구조, DTO 반환 타입 적용됨
 - [ ] 경로 지정 지침이 해당 폴더에서만 적용됨을 확인
 
 ---
