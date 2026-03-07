@@ -56,10 +56,11 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 
 | Step | 주제 | 무엇을 배우나요? |
 |:----:|------|-----------------|
-| [10](step-10-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
-| [11](step-11-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
-| [12](step-12-bonus-c-migration/) | 레거시 마이그레이션 | 클래식 ASP 레거시 코드를 Java(Spring Boot)로 전환하며 언어 마이그레이션 체험 |
-| [13](step-13-bonus-e-speckit/) | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
+| [10](step-10-bonus-readme/) | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
+| [11](step-11-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
+| [12](step-12-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
+| [13](step-13-bonus-c-migration/) | 레거시 마이그레이션 | 클래식 ASP 레거시 코드를 Java(Spring Boot)로 전환하며 언어 마이그레이션 체험 |
+| [14](step-14-bonus-e-speckit/) | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
 
 ---
 

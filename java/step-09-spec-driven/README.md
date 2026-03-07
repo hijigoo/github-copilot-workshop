@@ -363,4 +363,4 @@ SDD에서 테스트 실패는 **정상**입니다. Red → Green이 목표니까
 
 ## 다음 단계
 
-→ 보너스 트랙으로 넘어가세요: [Step 10 — Docker](../step-10-bonus-a-docker/README.md)
+→ 보너스 트랙으로 넘어가세요: [Step 10 — README 문서화](../step-10-bonus-readme/README.md)

@@ -152,9 +152,9 @@ Agent의 응답 품질이 떨어지는 것을 느끼면 — 이것이 **Context 
 **보너스 트랙**으로 넘어가세요:
 → [Step 9. Spec-Driven Development](../step-09-spec-driven/README.md)
 
-또는 **보너스 트랙**으로 넘어가세요:
-- **[Step 10 — Docker](../step-10-bonus-a-docker/README.md)**: Copilot으로 Docker 컨테이너화 (Layered Jar)
-- **[Step 11 — React.js 프론트엔드](../step-11-bonus-b-react/README.md)**: TODO API를 소비하는 React UI
-- **[Step 12 — 레거시 마이그레이션](../step-12-bonus-c-migration/README.md)**: 클래식 ASP 레거시 코드를 Java로 전환
-- **[Step 12 — 레거시 마이그레이션](../step-12-bonus-c-migration/README.md)**: 클래식 ASP → Java 전환
-- **[Step 13 — Spec Kit](../step-13-bonus-e-speckit/README.md)**: Spec-Driven Development 자동화
+또는 원하는 보너스 트랙을 선택하세요:
+- **[Step 10 — README 문서화](../step-10-bonus-readme/README.md)**: Copilot으로 프로젝트 README + Mermaid 다이어그램 생성
+- **[Step 11 — Docker](../step-11-bonus-a-docker/README.md)**: Copilot으로 Docker 컨테이너화 (Layered Jar)
+- **[Step 12 — React.js 프론트엔드](../step-12-bonus-b-react/README.md)**: TODO API를 소비하는 React UI
+- **[Step 13 — 레거시 마이그레이션](../step-13-bonus-c-migration/README.md)**: 클래식 ASP → Java 전환
+- **[Step 14 — Spec Kit](../step-14-bonus-e-speckit/README.md)**: Spec-Driven Development 자동화

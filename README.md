@@ -39,10 +39,11 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Agent, Custom
 | Step | 주제 | 무엇을 배우나요? |
 |:----:|------|-----------------|
 | 09 | Spec-Driven Dev | 문서 기반 스펙 → 분석/계획 → 테스트 → 구현 패턴 실습 |
-| 10 | Docker | Copilot으로 Dockerfile, docker-compose 생성 및 컨테이너화 |
-| 11 | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 |
-| 12 | 레거시 마이그레이션 | 레거시 코드를 현대적 언어/프레임워크로 전환 체험 |
-| 13 | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 자동화 |
+| 10 | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
+| 11 | Docker | Copilot으로 Dockerfile, docker-compose 생성 및 컨테이너화 |
+| 12 | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 |
+| 13 | 레거시 마이그레이션 | 레거시 코드를 현대적 언어/프레임워크로 전환 체험 |
+| 14 | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 자동화 |
 
 ---
 
@@ -58,7 +59,7 @@ github-copilot-workshop/
 │   │   ├── starter/       ← 시작 코드
 │   │   └── complete/      ← 참고 정답
 │   ├── ...
-│   └── step-13-bonus-e-speckit/
+    └── step-14-bonus-e-speckit/
 └── java/                  ← Java 트랙 (Spring Boot + IntelliJ)
     ├── README.md
     ├── step-00-setup/
@@ -66,7 +67,7 @@ github-copilot-workshop/
     │   ├── starter/
     │   └── complete/
     ├── ...
-    └── step-13-bonus-e-speckit/
+    └── step-14-bonus-e-speckit/
 ```
 
 각 스텝에는 `starter/`(시작 코드)와 `complete/`(참고 정답)가 포함되어 있습니다.
