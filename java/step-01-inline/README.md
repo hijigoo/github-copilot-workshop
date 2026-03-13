@@ -75,7 +75,7 @@ public class TodoController {
 
 > ![주석으로 코드 생성](../screenshot/step01-comment-to-code.png)
 
-### 만들어야 할 엔드포인트 4개
+**만들어야 할 엔드포인트 4개**
 
 | Method | Path | 설명 |
 |--------|------|------|
@@ -83,12 +83,6 @@ public class TodoController {
 | POST | `/todos` | 새 TODO 생성 |
 | PUT | `/todos/{id}` | TODO 수정 |
 | DELETE | `/todos/{id}` | TODO 삭제 |
-
-**각 엔드포인트마다**:
-1. 한글 주석을 먼저 쓴다
-2. `@GetMapping` or `@PostMapping` 등을 시작한다
-3. Copilot 제안을 `Tab`으로 수락한다
-4. 필요하면 수정한다
 
 ---
 
@@ -100,24 +94,13 @@ public class TodoController {
 
 `TodoApplication.java` 파일을 열고 `main` 메서드 옆의 ▶️ 실행 버튼을 클릭합니다.
 
-> 📸 **[IntelliJ 스크린샷]** TodoApplication.java에서 main 메서드 옆의 ▶️ 실행 버튼을 클릭하여 서버를 시작하는 모습
->
-> ![서버 실행](./images/step01-run-application.png)
+![서버 실행](../screenshot/step01-run-application.png)
 
 **방법 2: 터미널에서 실행**
 
 ```bash
 ./gradlew bootRun
 ```
-
-> 💡 JDK 관련 에러가 나면 Step 0의 [트러블슈팅](../step-00-setup/README.md#트러블슈팅)을 참고하거나, 경로를 직접 지정하세요:
-> ```bash
-> # macOS
-> ./gradlew bootRun -Dorg.gradle.java.home=/opt/homebrew/opt/openjdk@17
->
-> # Windows (PowerShell)
-> .\gradlew bootRun -Dorg.gradle.java.home="C:\Program Files\Eclipse Adoptium\jdk-17"
-> ```
 
 ### 수동 테스트
 
@@ -139,8 +122,6 @@ curl -X PUT http://localhost:8080/todos/1 \
 curl -X DELETE http://localhost:8080/todos/1
 ```
 
-> 💡 Swagger UI를 원한다면 `springdoc-openapi-starter-webmvc-ui` 의존성을 추가하세요.
-
 ---
 
 ## ✅ 검증 체크리스트
@@ -152,7 +133,10 @@ curl -X DELETE http://localhost:8080/todos/1
 
 ---
 
-## 🔧 에러가 나면? — Copilot으로 해결하기
+## 트러블슈팅
+
+<details>
+<summary><strong>🔧 에러가 나면? — Copilot으로 해결하기</strong></summary>
 
 ### 방법 1: Copilot Chat에 "에러 고쳐줘"
 
@@ -166,6 +150,8 @@ curl -X DELETE http://localhost:8080/todos/1
 
 - `complete/` 폴더의 코드와 비교해 보세요
 - `complete/` 코드를 복사해서 진행해도 괜찮습니다 — 이번 단계의 목표는 **Inline Suggestion 체험**입니다
+
+</details>
 
 ---
 
