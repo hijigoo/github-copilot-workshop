@@ -12,8 +12,8 @@
 
 | 폴더 | 설명 |
 |------|------|
-| `starter/` | Step 3 완성 코드 (DTO + priority + pagination) — 여기서 시작하세요 |
-| `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
+| `starter/` | Step 3 완성 코드 (기본 CRUD + Instructions) — 여기서 시작하세요 |
+| `complete/` | 이번 스텝 완성 코드 (+ Prompt Files 추가) — 막힐 때 참고하세요 |
 
 ---
 
@@ -40,15 +40,18 @@ Chat에서 `/파일명`으로 호출할 수 있습니다.
 > 아래 프롬프트 파일들은 두 가지 방식을 모두 지원하도록 작성되어 있습니다.
 
 ```
-.github/prompts/
-├── test.prompt.md           → /test 로 호출
-├── add-endpoint.prompt.md   → /add-endpoint 로 호출
-└── refactor.prompt.md       → /refactor 로 호출
+.github/
+├── copilot-instructions.md              ← Step 3에서 생성 (항상 적용)
+├── instructions/
+│   ├── testing.instructions.md          ← Step 3에서 생성 (테스트 파일에 적용)
+│   └── api.instructions.md              ← Step 3에서 생성 (Controller에 적용)
+└── prompts/                             ← 이번 스텝에서 생성!
+    ├── test.prompt.md                   → /test 로 호출
+    ├── add-endpoint.prompt.md           → /add-endpoint 로 호출
+    └── refactor.prompt.md               → /refactor 로 호출
 ```
 
-> 📸 **[IntelliJ 스크린샷]** IntelliJ Project 탐색기에서 `.github/prompts/` 폴더와 그 안의 `.prompt.md` 파일들이 보이는 모습
->
-> ![Prompt Files 폴더 구조](./images/step04-prompts-folder.png)
+![Prompt Files 폴더 구조](../screenshot/step04-prompts-folder.png)
 
 ---
 
@@ -62,7 +65,7 @@ agent: "agent"
 description: "선택한 모듈에 대한 테스트를 자동 생성합니다"
 ---
 
-#file:dto/ 의 DTO 스펙을 참조하여,
+#file:TodoController.java 의 코드 패턴을 참조하여,
 채팅에서 언급하거나 선택된 '대상'에 대한 테스트를 작성해주세요.
 
 대상: ${input:testTarget}
@@ -81,16 +84,13 @@ description: "선택한 모듈에 대한 테스트를 자동 생성합니다"
 
 **VS Code:**
 1. Chat에서 `/test` 입력
-2. `testTarget` 변수 입력 팝업에 `PATCH /todos/{id}` 입력
+2. `testTarget` 변수 입력 팝업에 `PUT /todos/{id}` 입력
 3. Copilot이 해당 엔드포인트의 테스트를 자동 생성
 
 **IntelliJ:**
-1. Chat에서 `/test PATCH /todos/{id}` 입력 (프롬프트와 대상을 함께 전달)
+1. Chat에서 `/test PUT /todos/{id}` 입력 (프롬프트와 대상을 함께 전달)
 2. Copilot이 채팅 메시지에서 대상을 인식하여 테스트를 자동 생성
 
-> 📸 **[IntelliJ 스크린샷]** Chat에서 `/test`를 입력하면 프롬프트 파일이 자동 로드되고, 채팅 메시지로 대상을 전달하는 화면
->
-> ![/test 프롬프트 호출](./images/step04-test-prompt-invoke.png)
 
 ---
 
@@ -110,13 +110,11 @@ description: "기존 패턴에 맞춰 새 API 엔드포인트를 추가합니다
 (변수 입력이 없으면 채팅 메시지에서 언급된 기능을 사용하세요)
 
 ## 순서 (반드시 이 순서대로!)
-1. **DTO**: dto/ 패키지에 필요한 요청/응답 DTO record 추가
-2. **Controller**: TodoController에 엔드포인트 메서드 추가
-3. **TEST**: test/에 새 엔드포인트에 대한 테스트 작성
-4. **VERIFY**: ./gradlew test로 전체 테스트 통과 확인
+1. **Controller**: TodoController에 엔드포인트 메서드 추가
+2. **TEST**: test/에 새 엔드포인트에 대한 테스트 작성
+3. **VERIFY**: ./gradlew test로 전체 테스트 통과 확인
 
 ## 참고 파일
-#file:dto/
 #file:TodoController.java
 ```
 
@@ -124,16 +122,12 @@ description: "기존 패턴에 맞춰 새 API 엔드포인트를 추가합니다
 
 **VS Code:**
 1. Chat에서 `/add-endpoint` 입력
-2. `featureDescription` 변수 입력 팝업에 `TODO에 마감일(dueDate) 필드 추가` 입력
-3. Copilot이 기존 코드 패턴에 맞춰 DTO → Controller → 테스트 순서로 자동 구현
+2. `featureDescription` 변수 입력 팝업에 `PATCH /todos/{id} 부분 수정 엔드포인트 추가` 입력
+3. Copilot이 기존 코드 패턴에 맞춰 Controller → 테스트 순서로 자동 구현
 
 **IntelliJ:**
-1. Chat에서 `/add-endpoint TODO에 마감일(dueDate) 필드 추가` 입력
-2. Copilot이 채팅 메시지에서 기능을 인식하여 DTO → Controller → 테스트 순서로 자동 구현
-
-> 📸 **[IntelliJ 스크린샷]** `/add-endpoint` 호출 후 채팅 메시지로 기능 설명을 전달하는 화면
->
-> ![/add-endpoint 프롬프트 호출](./images/step04-add-endpoint-invoke.png)
+1. Chat에서 `/add-endpoint PATCH /todos/{id} 부분 수정 엔드포인트 추가` 입력
+2. Copilot이 채팅 메시지에서 기능을 인식하여 Controller → 테스트 순서로 자동 구현
 
 ---
 
@@ -164,25 +158,36 @@ description: "선택한 코드를 리팩토링합니다"
 - 타입 안전성 향상
 ```
 
+### 사용법
+
+**VS Code:**
+1. Chat에서 `/refactor` 입력
+2. `refactorTarget` 변수 입력 팝업에 `TodoController의 findById 중복 로직` 입력
+3. Copilot이 동작 변경 없이 구조를 개선하고 테스트 통과 확인
+
+**IntelliJ:**
+1. Chat에서 `/refactor TodoController의 findById 중복 로직` 입력 (프롬프트와 대상을 함께 전달)
+2. Copilot이 채팅 메시지에서 대상을 인식하여 리팩토링 수행
+
 ---
 
 ## 태스크 4: 프롬프트 파일 활용 실습 (5분)
 
-### ① 테스트 생성 프롬프트 실행
+### 1. 테스트 생성 프롬프트 실행
 
 Chat에 입력:
 
-> `/test GET /todos 페이지네이션`
+> `/test GET /todos/{id} 단건 조회`
 
-→ Copilot이 페이지네이션 관련 테스트를 자동 생성합니다.
+→ Copilot이 단건 조회 엔드포인트 관련 테스트를 자동 생성합니다.
 
-### ② 엔드포인트 추가 프롬프트 실행
+### 2. 엔드포인트 추가 프롬프트 실행
 
 Chat에 입력:
 
-> `/add-endpoint TODO 검색 API (GET /todos/search?keyword=...)`
+> `/add-endpoint PATCH /todos/{id} 부분 수정 엔드포인트`
 
-→ Copilot이 DTO → Controller → 테스트 순서로 검색 API를 자동 구현합니다.
+→ Copilot이 Controller → 테스트 순서로 PATCH 엔드포인트를 자동 구현합니다.
 
 ---
 

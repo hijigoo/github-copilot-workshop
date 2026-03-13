@@ -2,9 +2,12 @@
 agent: "agent"
 description: "선택한 모듈에 대한 테스트를 자동 생성합니다"
 ---
-#file:dto/ 의 DTO 스펙을 참조하여,
-다음 대상에 대한 테스트를 작성해주세요:
+
+#file:TodoController.java 의 코드 패턴을 참조하여,
+채팅에서 언급하거나 선택된 '대상'에 대한 테스트를 작성해주세요.
+
 대상: ${input:testTarget}
+(변수 입력이 없으면 채팅 메시지에서 언급된 대상을 사용하세요)
 
 ## 규칙
 - JUnit 5 + MockMvc 사용
