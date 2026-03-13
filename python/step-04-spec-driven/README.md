@@ -114,7 +114,7 @@ tests/
 
 `.specs/api-design.md` 파일 생성:
 
-```markdown
+````markdown
 # API 설계
 
 ## 기본 정보
@@ -154,7 +154,7 @@ tests/
 - 설명: TODO 삭제
 - 응답 (204): 본문 없음
 - 에러 (404): 존재하지 않는 TODO
-```
+````
 
 ### 1-3. 데이터 모델
 

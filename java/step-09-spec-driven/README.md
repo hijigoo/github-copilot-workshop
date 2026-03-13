@@ -137,7 +137,7 @@ src/test/java/com/example/todo/
 
 `.specs/api-design.md` 파일 생성:
 
-```markdown
+````markdown
 # API 설계
 
 ## 기본 정보
@@ -177,7 +177,7 @@ src/test/java/com/example/todo/
 - 설명: TODO 삭제
 - 응답 (204): 본문 없음
 - 에러 (404): 존재하지 않는 TODO
-```
+````
 
 ### 1-3. 데이터 모델
 
@@ -212,7 +212,7 @@ src/test/java/com/example/todo/
 
 ### 2-1. 스펙 분석 (Analyze)
 
-Copilot Chat(Agent 모드)에서:
+Copilot Chat(**Ask 모드**)에서 스펙을 분석합니다:
 
 ```
 #file:.specs/requirements.md
@@ -223,10 +223,19 @@ Copilot Chat(Agent 모드)에서:
 빠진 부분이나 모호한 부분이 있으면 알려줘.
 ```
 
+> 💡 분석 단계에서는 파일 생성이 필요 없으므로 **Ask 모드**로 충분합니다.
+> Agent가 지적하는 모호한 부분이 있으면 `.specs/` 문서를 보완하세요.
+
 ### 2-2. 구현 계획 작성 (Plan)
 
+Copilot Chat을 **Agent 모드로 전환**한 후 구현 계획 파일을 생성합니다:
+
 ```
-파악한 내용을 바탕으로 context/todo.md에 다음을 포함한 구현 계획을 작성해줘:
+#file:.specs/requirements.md
+#file:.specs/api-design.md
+#file:.specs/data-model.md
+
+위 스펙 문서를 바탕으로 context/todo.md에 다음을 포함한 구현 계획을 작성해줘:
 
 1. 생성할 파일 목록
 2. 각 파일의 역할
@@ -236,6 +245,11 @@ Copilot Chat(Agent 모드)에서:
 기술 스택: Java 17+ / Spring Boot 3.x / Jakarta Validation
 저장소: 인메모리 ArrayList
 ```
+
+> ⚠️ **모드 주의**: `context/todo.md` 파일을 자동 생성하려면 **Agent 모드**가 필요합니다.
+> Plan 모드에서는 채팅 응답으로만 계획이 출력되며, 파일이 생성되지 않습니다.
+>
+> 💡 Plan 모드를 사용한 경우, Copilot의 응답을 직접 `context/todo.md`에 복사하거나 Agent 모드로 변경해서 파일 저장을 요청합니다.
 
 ### 관찰 포인트
 - [ ] Agent가 스펙의 모호한 부분을 지적하는가?
@@ -249,6 +263,8 @@ Copilot Chat(Agent 모드)에서:
 ---
 
 ## 태스크 3: 테스트 먼저 작성 (Test First) (5분)
+
+Copilot Chat(**Agent 모드**)에서 스펙과 구현 계획을 기반으로 테스트를 생성합니다:
 
 ```
 #file:.specs/requirements.md
@@ -268,6 +284,8 @@ Copilot Chat(Agent 모드)에서:
 
 스펙 문서의 요구사항을 빠짐없이 검증하는 테스트를 작성해줘.
 ```
+
+> 💡 `context/todo.md` 파일이 없는 경우, `#file:context/todo.md` 행을 제거하고 스펙 문서만으로도 테스트를 생성할 수 있습니다.
 
 ---
 
@@ -315,7 +333,7 @@ Copilot Chat(Agent 모드)에서:
 ## ✅ 검증 체크리스트
 
 - [ ] `.specs/` 폴더에 요구사항 + API 설계 + 데이터 모델 문서 작성
-- [ ] `context/todo.md`에 Agent가 구현 계획 작성
+- [ ] `context/todo.md`에 Agent가 구현 계획 작성 (Agent 모드 필요)
 - [ ] 테스트가 먼저 작성됨 (Red 단계)
 - [ ] Copilot이 구현을 완성 (Green 단계)
 - [ ] `./gradlew test` 전체 통과
