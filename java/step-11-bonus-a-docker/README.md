@@ -22,12 +22,11 @@
 **💬 Copilot Agent:**
 ```
 #file:build.gradle.kts
-#file:TodoApplication.java
 
-위 Spring Boot TODO 앱을 위한 Dockerfile을 만들어줘.
+현재 Spring Boot TODO 앱을 위한 Dockerfile을 만들어줘.
 
 요구사항:
-- Eclipse Temurin JDK 17 베이스 이미지
+- Eclipse Temurin 베이스 이미지 (build.gradle.kts의 Java 버전에 맞춰서)
 - 멀티스테이지 빌드 (Gradle 빌드 → 실행 이미지 분리)
 - Spring Boot Layered Jar 활용
 - 비루트 사용자로 실행
@@ -39,8 +38,8 @@
 
 | 확인 항목 | 기대 내용 |
 |----------|----------|
-| 빌드 스테이지 | `eclipse-temurin:17-jdk` + Gradle 빌드 |
-| 실행 스테이지 | `eclipse-temurin:17-jre` (JRE만) |
+| 빌드 스테이지 | `eclipse-temurin:{버전}-jdk` + Gradle 빌드 (프로젝트 Java 버전과 일치) |
+| 실행 스테이지 | `eclipse-temurin:{버전}-jre` (JRE만) |
 | Layered Jar | `java -Djarmode=layertools -jar app.jar extract` |
 | 비루트 사용자 | `USER` 지시어로 루트가 아닌 사용자 설정 |
 | HEALTHCHECK | `/actuator/health` 엔드포인트 활용 |
@@ -49,7 +48,27 @@
 >
 > ![Dockerfile 생성 결과](./images/step10-dockerfile-result.png)
 
-### 1-3. 이미지 빌드 및 실행
+### 1-3. 이미지 빌드 및 실행 테스트
+
+Copilot Agent에게 빌드부터 실행, 동작 확인까지 요청합니다:
+
+**💬 Copilot Agent:**
+```
+생성된 Dockerfile로 Docker 이미지를 빌드하고, 컨테이너를 실행한 다음,
+curl로 API가 정상 동작하는지 확인해줘.
+
+확인할 엔드포인트:
+- GET /actuator/health (헬스 체크)
+- POST /todos (TODO 생성)
+- GET /todos (TODO 목록 조회)
+
+확인이 끝나면 컨테이너를 정리해줘.
+```
+
+> 💡 Agent 모드에서는 터미널 명령어 실행까지 자동으로 수행합니다.
+> `docker build`, `docker run`, `curl` 테스트, `docker stop/rm`까지 한 번에 처리됩니다.
+
+직접 터미널에서 수동으로 테스트하려면:
 
 ```bash
 # Docker 이미지 빌드
