@@ -19,8 +19,13 @@
 
 ## 왜 세 번째인가?
 
-Step 2에서 Chat을 쓸 때 매번 "한글로 대답해줘", "JUnit 5 쓰고 있어" 등을 반복했을 겁니다.
-**Instructions**는 이런 반복을 **한 번에 제거**합니다.
+Step 2에서 Chat을 쓸 때 매번 같은 말을 반복하지 않았나요?
+
+- "JUnit 5 쓰고 있어"
+- "테스트 메서드명은 test_동작_조건_결과() 형식으로 해줘"
+- "Controller에서 비즈니스 로직 쓰지 마"
+
+**Instructions**는 이런 반복을 **한 번에 제거**합니다. 코드 컨벤션, 프로젝트 구조, 네이밍 규칙, 테스트 패턴 등 **항상 유지해야 하는 규칙**을 파일로 정의하면, Copilot이 매 응답마다 자동으로 반영합니다.
 
 ---
 
@@ -38,21 +43,21 @@ Copilot은 다음 유형의 사용자 지정 지침 파일을 지원합니다:
 ├── copilot-instructions.md          ← 리포지토리 전체 지침 (항상 적용)
 └── instructions/
     ├── testing.instructions.md      ← tests/** 에서만 적용
-    └── api.instructions.md          ← controller/** 에서만 적용
+    └── api.instructions.md          ← *Controller.java 파일에만 적용
 ```
 
-> 📸 **[IntelliJ 스크린샷]** IntelliJ Project 탐색기에서 `.github/` 폴더 구조와 `copilot-instructions.md`, `instructions/` 폴더가 보이는 모습
->
-> ![Instructions 폴더 구조](./images/step03-instructions-folder.png)
+![Instructions 폴더 구조](../screenshot/step03-instructions-folder.png)
 
-> � **설정에서 지침 확인하기**
->
-> IntelliJ 설정에서 등록된 지침 파일을 확인할 수 있습니다:
-> **Settings** (`Windows/Linux: Ctrl+Alt+S`, `macOS: Cmd+,`) → **Tools** → **GitHub Copilot** → **Customizations**
->
-> ![IntelliJ Copilot Customizations 설정](./images/step03-intellij-customizations.png)
+🔧 **설정에서 지침 확인하기**
 
-> �📖 자세한 내용: [GitHub Copilot에 대한 리포지토리 사용자 지정 지침 추가하기](https://docs.github.com/ko/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode)
+IntelliJ 설정에서 등록된 지침 파일을 확인할 수 있습니다:
+**Settings** (`Windows/Linux: Ctrl+Alt+S`, `macOS: Cmd+,`) → **Tools** → **GitHub Copilot** → **Customizations**
+
+![IntelliJ Copilot Customizations 설정](../screenshot/step03-intellij-customizations.png)
+
+> 📖 자세한 내용: [GitHub Copilot에 대한 리포지토리 사용자 지정 지침 추가하기](https://docs.github.com/ko/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode)
+
+> 📖 지원 범위: [Custom Instructions 지원 현황](https://docs.github.com/en/copilot/reference/custom-instructions-support)
 
 ---
 
@@ -147,7 +152,7 @@ applyTo: "**/test/**"
 
 ```markdown
 ---
-applyTo: "**/controller/**"
+applyTo: "**/*Controller.java"
 ---
 # API 코드 규칙
 
@@ -170,56 +175,55 @@ applyTo: "**/controller/**"
 
 ## 태스크 3: 지침 동작 실습 및 검증 (10분)
 
-태스크 1, 2에서 생성한 지침 파일들이 실제로 Copilot에 올바르게 적용되는지 확인합니다.
+앞서 생성한 지침 파일들이 실제로 Copilot에 올바르게 적용되는지 확인합니다.
 
-### ① 리포지토리 전체 지침 동작 확인
+### 1. 리포지토리 전체 지침 동작 확인
 
 `TodoControllerTest.java` 파일을 열고 Chat에 입력:
+앞서 생성한 지침 파일들이 실제로 Copilot에 올바르게 적용되는지 확인합니다.
+**.github/copilot-instructions.md, .github/instructions/testing.instructions.md**
 
-> "Instructions에 설정된 규칙을 설명해주고, 그 규칙에 맞게 프로젝트를 리팩토링해줘"
+```
+Instructions에 설정된 규칙을 설명해주고, 그 규칙에 맞게 프로젝트를 리팩토링해줘
+```
 
-→ 현재 테스트 코드에는 `@Nested` 그룹핑이나 Given-When-Then 주석이 없습니다. 지침이 적용되면 다음이 변경됩니다:
+지침이 적용되면 다음이 변경됩니다:
 
 - [ ] 테스트 메서드명이 `test_동작_조건_결과()` 패턴으로 변경되었는가? (예: `test_createTodo_withValidData_returns201`)
 - [ ] `@Nested` 클래스로 엔드포인트별 그룹핑이 추가되었는가?
 - [ ] `// Given:` / `// When:` / `// Then:` 주석 패턴이 추가되었는가?
 
-> 📸 **[IntelliJ 스크린샷]** Chat에 리팩토링을 요청했을 때, `copilot-instructions.md`의 프로젝트 규칙이 반영된 결과 — `@Nested` 그룹핑, Given-When-Then 주석, 영문 테스트 네이밍이 적용된 모습
->
-> ![전체 지침 적용 결과](./images/step03-global-instructions-result.png)
+![전체 지침 적용 결과](../screenshot/step03-global-instructions-result.png)
 
-### ② 테스트 경로 지정 지침 확인
+어떤 인스트럭션을 참고했는지 알고 싶으면 아래 명령을 입력하세요:
 
-기존 테스트 코드를 삭제한 후 새로 생성하여 지침 적용을 확인합니다.
+```
+참고한 모든 인스트럭션 경로를 포함한 이름 알려줘
+```
 
-먼저 `TodoControllerTest.java`가 있다면 코드를 모두 삭제하고 진행합니다.
-
-그 다음 테스트 파일을 열고 Chat에 입력:
-
-> "TodoController에 대한 테스트를 작성해줘"
-
-→ 확인 포인트:
-- [ ] 메서드명이 `test_동작_조건_결과()` 패턴인가?
-- [ ] `// Given:` / `// When:` / `// Then:` 주석이 있는가?
-- [ ] `@Nested` 클래스로 그룹핑 되었는가?
-
-> 📸 **[IntelliJ 스크린샷]** 테스트 파일에서 Chat으로 테스트 생성을 요청했을 때, `testing.instructions.md` 지침이 반영된 결과 — `test_동작_조건_결과()` 네이밍과 Given-When-Then 패턴이 적용된 모습
->
-> ![테스트 지침 적용 결과](./images/step03-testing-instructions-result.png)
-
-### ③ API 코드 경로 지정 지침 확인
+### 2. API 코드 경로 지정 지침 확인
 
 `TodoController.java` 파일을 열고 Chat에 입력:
+적용될 지침: **.github/copilot-instructions.md, .github/instructions/api.instructions.md**
 
-> "PATCH /todos/{id} 부분 수정 엔드포인트를 추가해줘"
+```
+PATCH /todos/{id} 부분 수정 엔드포인트를 추가해줘
+```
 
-→ `api.instructions.md`의 고유 규칙이 추가 적용되는지 확인합니다:
-- [ ] Controller가 Service에 위임하는 구조인가? (기존 코드는 Controller에서 직접 처리)
-- [ ] 반환 타입이 DTO인가? (기존 코드는 `Todo` 객체를 직접 반환)
+지침이 적용되면 다음이 변경됩니다:
 
-> 📸 **[IntelliJ 스크린샷]** `api.instructions.md` 지침이 반영된 엔드포인트 생성 결과
->
-> ![API 지침 적용 결과](./images/step03-api-instructions-result.png)
+- [ ] **에러 처리**: `ResponseStatusException(HttpStatus.NOT_FOUND, "한국어 메시지")`로 404를 처리하는가?
+- [ ] **에러 메시지**: 에러 메시지가 한국어로 작성되었는가?
+- [ ] **메서드 파라미터**: `@PathVariable Long id`, `@RequestBody Todo patchData` 등 타입이 명확히 지정되었는가?
+
+
+![API 지침 적용 결과](../screenshot/step03-api-instructions-result.png)
+
+어떤 인스트럭션을 참고했는지 알고 싶으면 아래 명령을 입력하세요:
+
+```
+참고한 모든 인스트럭션의 경로를 포함한 이름 알려줘
+```
 
 ---
 
