@@ -26,12 +26,9 @@
 Agent 모드에서 Copilot에게 큰 작업을 요청하면, 바로 코드를 생성하는 대신
 **구현 계획(Plan)을 먼저 제시**하도록 할 수 있습니다.
 
-- Chat 입력창 하단 **도구 선택 버튼**(🔧)에서 `Plan` 도구를 활성화
-- 또는 프롬프트에 "계획만 세워줘, 구현은 하지 마" 라고 명시
+- Chat 입력창 하단 **Agent 선택 버튼**에서 `Plan` 에이전트 선택
 
-> 📸 **[IntelliJ 스크린샷]** Chat 입력창 하단의 도구 선택 버튼(🔧)을 클릭하여 Plan 도구를 활성화하는 화면
->
-> ![Plan 도구 활성화](./images/step07-plan-tool-enable.png)
+![Plan 도구 활성화](../screenshot/step07-plan-tool-enable.png)
 
 ---
 
@@ -51,14 +48,7 @@ TODO 앱에 다음 3가지 기능을 추가하려고 해:
 각 기능에 대해 필요한 파일 변경, DTO, 테스트 케이스를 정리해줘.
 ```
 
-**관찰 포인트:**
-- Agent가 빈 프로젝트를 분석하고 필요한 패키지 구조(entity/, dto/, controller/, service/)를 설계하는 과정
-- 3개 기능을 처음부터 만들 때 구현 순서와 의존성을 어떻게 정리하는지 (기본 CRUD → 카테고리 → 통계 → 검색 순서 등)
-- 제시한 테스트 케이스가 충분한지
-
-> 📸 **[IntelliJ 스크린샷]** Agent가 Plan을 생성한 결과 — 3개 기능에 대한 구현 계획이 단계별로 정리되어 표시되는 Chat 패널 화면
->
-> ![Plan 결과](./images/step07-plan-result.png)
+![Plan 결과](../screenshot/step07-plan-result.png)
 
 ### Step 2 — 구현
 
@@ -68,9 +58,7 @@ TODO 앱에 다음 3가지 기능을 추가하려고 해:
 
 Plan 결과 하단의 **`Start Implementation`** 버튼을 클릭하면, 계획 전체를 순서대로 자동 실행합니다.
 
-> 📸 **[IntelliJ 스크린샷]** Plan 결과 하단에 표시되는 `Start Implementation` 버튼 위치
->
-> ![Start Implementation 버튼](./images/step07-start-implementation.png)
+![Start Implementation 버튼](../screenshot/step07-start-implementation.png)
 
 #### 방법 B: Chat에서 기능별로 요청 (단계적 실행)
 
@@ -111,10 +99,7 @@ Agent의 응답 품질이 떨어지는 것을 느끼면 — 이것이 **Context 
 ```
 /clear
 ```
-
-> 📸 **[IntelliJ 스크린샷]** Chat에서 `/clear` 명령을 입력하여 대화 컨텍스트를 초기화하는 화면
->
-> ![/clear 명령](./images/step07-clear-command.png)
+![/clear 명령](../screenshot/step07-clear-command.png)
 
 초기화 후 핵심 파일만 참조하여 재시작:
 
