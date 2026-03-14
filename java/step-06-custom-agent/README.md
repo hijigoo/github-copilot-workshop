@@ -29,9 +29,7 @@ Chat에서 Agent 드롭다운을 통해 호출할 수 있습니다.
 └── refactor.agent.md      → @refactor 로 호출
 ```
 
-> 📸 **[IntelliJ 스크린샷]** IntelliJ Project 탐색기에서 `.github/agents/` 폴더와 그 안의 `.agent.md` 파일들이 보이는 모습
->
-> ![Agent 폴더 구조](./images/step06-agents-folder.png)
+![Agent 폴더 구조](../screenshot/step06-agents-folder.png)
 
 ### Agent 프로필 구조
 
@@ -39,7 +37,7 @@ Chat에서 Agent 드롭다운을 통해 호출할 수 있습니다.
 ---
 name: 에이전트-이름
 description: "에이전트 설명"
-tools: ["read", "edit", "search"]
+tools: ["read_file", "replace_string_in_file", "grep_search"]
 ---
 
 프롬프트 본문 (최대 30,000자)
@@ -51,15 +49,24 @@ tools: ["read", "edit", "search"]
 | `description` | **필수** | Agent의 목적과 전문 영역 설명 |
 | `tools` | 선택 | 사용 가능한 도구 목록 (생략 시 모든 도구) |
 
-### 도구 별칭 (Tool Aliases)
+### 빌트인 도구 목록 (Built-in Tools)
 
-| 별칭 | 동작 | 활용 예 |
-|------|------|--------|
-| `read` | 파일 읽기 | 리뷰 전용 Agent |
-| `edit` | 파일 수정 | 구현 Agent |
-| `search` | 파일/텍스트 검색 | 분석 Agent |
-| `execute` | 터미널 명령 실행 | 빌드/테스트 Agent |
-| `web` | 웹 검색/페이지 조회 | 리서치 Agent |
+IntelliJ의 Configure Tools 패널에서 확인할 수 있는 도구들입니다:
+
+| 도구 이름 | 동작 |
+|------|------|
+| `read_file` | 파일 내용 읽기 |
+| `insert_edit_into_file` | 파일 수정 |
+| `replace_string_in_file` | 파일 내 문자열 치환 |
+| `create_file` | 새 파일 생성 |
+| `file_search` | 파일명/경로 검색 |
+| `grep_search` | 파일 내 텍스트 검색 |
+| `semantic_search` | 의미 기반 코드 검색 |
+| `run_in_terminal` | 터미널 명령 실행 |
+| `get_terminal_output` | 터미널 출력 확인 |
+| `get_errors` | 컴파일/린트 에러 확인 |
+| `list_dir` | 디렉토리 목록 조회 |
+| `run_subagent` | 서브에이전트 호출 |
 
 ---
 
@@ -71,7 +78,6 @@ tools: ["read", "edit", "search"]
 ---
 name: reviewer
 description: "코드 리뷰를 수행하는 시니어 Java 개발자 Agent"
-tools: ["read", "search"]
 ---
 
 당신은 시니어 Java/Spring Boot 백엔드 개발자입니다.
@@ -113,9 +119,6 @@ tools: ["read", "search"]
 - 총 이슈 수 (Critical/Warning/Suggestion 별)
 - 가장 시급한 3가지
 - 전반적인 코드 품질 점수 (1-10)
-
-## 참고 파일
-#file:dto/
 ```
 
 ### 사용법
@@ -126,9 +129,7 @@ Chat 하단의 Agent 선택 버튼에서 `reviewer`를 선택한 후:
 #file:TodoController.java 이 코드를 리뷰해줘
 ```
 
-> 📸 **[IntelliJ 스크린샷]** Chat 하단의 Agent 선택 드롭다운에서 `reviewer`, `builder`, `refactor` 등 Custom Agent 목록이 표시되는 화면
->
-> ![Agent 선택 드롭다운](./images/step06-agent-dropdown.png)
+![Agent 선택 드롭다운](../screenshot/step06-agent-dropdown.png)
 
 ---
 
@@ -180,12 +181,6 @@ description: "기능 요청을 받아 프로젝트 아키텍처에 맞게 전체
 - 기존 API의 동작을 깨뜨리지 마세요
 - 모든 새 코드에 한글 주석/Javadoc을 포함하세요
 - 각 Phase 완료 시 사용자에게 확인 요청
-
-## 참고 파일
-#file:dto/
-#file:entity/
-#file:controller/TodoController.java
-#file:service/TodoService.java
 ```
 
 ### 사용법
@@ -196,9 +191,7 @@ Chat 하단의 Agent 선택 버튼에서 `builder`를 선택한 후:
 TODO에 태그(tags) 기능을 추가해줘. 하나의 TODO에 여러 태그를 붙일 수 있어야 해.
 ```
 
-> 📸 **[IntelliJ 스크린샷]** `@builder` Agent를 선택하고 기능 요청을 입력한 후, Agent가 분석→DTO→Entity→Service→Controller→테스트 순서로 실행하는 Chat 패널 화면
->
-> ![@builder Agent 실행](./images/step06-builder-agent-execution.png)
+![@builder Agent 실행](../screenshot/step06-builder-agent-execution.png)
 
 ---
 
@@ -210,7 +203,7 @@ TODO에 태그(tags) 기능을 추가해줘. 하나의 TODO에 여러 태그를 
 ---
 name: refactor
 description: "기존 코드를 분석하고 품질을 개선하는 리팩토링 전문 Agent"
-tools: ["read", "edit", "search", "execute"]
+tools: ["read_file", "insert_edit_into_file", "replace_string_in_file", "create_file", "file_search", "grep_search", "semantic_search", "run_in_terminal", "get_terminal_output", "get_errors"]
 ---
 
 당신은 시니어 Java 리팩토링 전문가입니다.
@@ -240,11 +233,6 @@ tools: ["read", "edit", "search", "execute"]
 - 외부 동작(API 응답)을 변경하지 마세요
 - 리팩토링과 기능 추가를 섞지 마세요
 - 테스트 없이 코드를 수정하지 마세요
-
-## 참고 파일
-#file:TodoController.java
-#file:TodoService.java
-#file:dto/
 ```
 
 ### 사용법
@@ -255,6 +243,8 @@ Chat 하단의 Agent 선택 버튼에서 `refactor`를 선택한 후:
 TodoService.java의 코드를 리팩토링해줘.
 중복된 로직을 헬퍼 메서드로 추출하고, 에러 처리를 일관성 있게 개선해줘.
 ```
+
+![@Refactor Agent 실행](../screenshot/step06-refactor-agent-execution.png)
 
 ---
 
