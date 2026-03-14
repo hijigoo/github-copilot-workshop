@@ -134,10 +134,10 @@ Agent의 응답 품질이 떨어지는 것을 느끼면 — 이것이 **Context 
 
 축하합니다! 🎉 메인 트랙의 모든 단계를 완료했습니다!
 
-**보너스 트랙**으로 넘어가세요:
+**다음 스텝**으로 넘어가세요:
 → [Step 9. Spec-Driven Development](../step-09-spec-driven/README.md)
 
-또는 원하는 보너스 트랙을 선택하세요:
+완료 후 원하는 **보너스 트랙**을 선택하세요:
 - **[Step 10 — README 문서화](../step-10-bonus-readme/README.md)**: Copilot으로 프로젝트 README + Mermaid 다이어그램 생성
 - **[Step 11 — Docker](../step-11-bonus-a-docker/README.md)**: Copilot으로 Docker 컨테이너화 (Layered Jar)
 - **[Step 12 — React.js 프론트엔드](../step-12-bonus-b-react/README.md)**: TODO API를 소비하는 React UI
