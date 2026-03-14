@@ -314,3 +314,15 @@ npm run dev
 - [Vite 공식 문서](https://vitejs.dev/)
 - [Tailwind CSS 공식 문서](https://tailwindcss.com/)
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
+
+---
+
+## 다음 단계
+
+→ [Step 13. 레거시 마이그레이션](../step-13-bonus-c-migration/README.md)
+
+---
+
+## 다음 단계
+
+→ [Step 13. 레거시 마이그레이션](../step-13-bonus-c-migration/README.md)

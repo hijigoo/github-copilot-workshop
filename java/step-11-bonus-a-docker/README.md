@@ -163,3 +163,9 @@ docker-compose down
 - **Spring Boot + Docker**: Layered Jar를 활용하면 의존성 레이어가 캐시되어 빌드 속도가 크게 향상됩니다.
 - **보안은 반드시 검토**: 비루트 사용자 실행, Actuator 엔드포인트 보안 설정을 항상 확인하세요.
 - **JVM 최적화**: 컨테이너 환경에서는 `-XX:MaxRAMPercentage`로 메모리 제한을 설정하는 것이 중요합니다.
+
+---
+
+## 다음 단계
+
+→ [Step 12. React 프론트엔드](../step-12-bonus-b-react/README.md)

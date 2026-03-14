@@ -152,3 +152,15 @@ Set conn = Nothing
 - [ ] SQL Injection 취약점 제거 확인
 - [ ] JUnit 테스트 통과
 - [ ] 기존 기능(목록 조회, 생성, 우선순위)이 유지되는지 확인
+
+---
+
+## 다음 단계
+
+→ [Step 14. Spec Kit](../step-14-bonus-e-speckit/README.md)
+
+---
+
+## 다음 단계
+
+→ [Step 14. Spec Kit](../step-14-bonus-e-speckit/README.md)
