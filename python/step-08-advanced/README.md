@@ -108,6 +108,27 @@ TODO 앱에 production-ready 기능을 추가해줘:
 
 Agent가 서버를 실행하면 http://localhost:8000/docs 에 접속하여 카테고리, 통계, 검색, health check 엔드포인트를 확인합니다.
 
+### 💡 Context Rot과 `/clear`
+
+Step 1 → 3을 이어서 진행하다 보면 대화가 매우 길어집니다.
+Agent의 응답 품질이 떨어지는 것을 느끼면 — 이것이 **Context Rot**입니다.
+
+**징후**: 이전에 만든 코드를 무시함, 같은 실수를 반복함, 엉뚱한 파일을 수정함
+
+**해결법:**
+
+```
+/clear
+```
+
+초기화 후 핵심 파일만 참조하여 재시작:
+
+```
+#file:app/main.py #file:app/schemas.py #file:app/models.py
+
+위 파일들을 기반으로, CORS 미들웨어와 health check 엔드포인트를 추가해주세요.
+```
+
 ---
 
 ## ✅ 검증 체크리스트

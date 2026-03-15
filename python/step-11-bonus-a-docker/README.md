@@ -61,7 +61,27 @@ Copilot이 생성한 Dockerfile에서 다음 항목을 확인합니다:
 | HEALTHCHECK | `/health` 엔드포인트를 활용한 헬스 체크 |
 | EXPOSE | 8000 포트 |
 
-### 1-3. 이미지 빌드 및 실행
+### 1-3. 이미지 빌드 및 실행 테스트
+
+Copilot Agent에게 빌드부터 실행, 동작 확인까지 요청합니다:
+
+**💬 Copilot Agent:**
+```
+생성된 Dockerfile로 Docker 이미지를 빌드하고, 컨테이너를 실행한 다음,
+curl로 API가 정상 동작하는지 확인해줘.
+
+확인할 엔드포인트:
+- GET /health (헬스 체크)
+- POST /api/v1/todos (TODO 생성)
+- GET /api/v1/todos (TODO 목록 조회)
+
+확인이 끝나면 컨테이너를 정리해줘.
+```
+
+> 💡 Agent 모드에서는 터미널 명령어 실행까지 자동으로 수행합니다.
+> `docker build`, `docker run`, `curl` 테스트, `docker stop/rm`까지 한 번에 처리됩니다.
+
+직접 터미널에서 수동으로 테스트하려면:
 
 ```bash
 # step-05-agent/complete 디렉토리에서 실행
@@ -211,3 +231,9 @@ docker-compose down
 - [Docker 공식 문서 — Dockerfile 베스트 프랙티스](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 - [Docker Compose 공식 문서](https://docs.docker.com/compose/)
 - [FastAPI 공식 문서 — Docker 배포](https://fastapi.tiangolo.com/deployment/docker/)
+
+---
+
+## 다음 단계
+
+→ [Step 12. React 프론트엔드](../step-12-bonus-b-react/README.md)

@@ -43,6 +43,8 @@ Copilot은 다음 유형의 사용자 지정 지침 파일을 지원합니다:
 
 > 📖 자세한 내용: [GitHub Copilot에 대한 리포지토리 사용자 지정 지침 추가하기](https://docs.github.com/ko/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode)
 
+> 📖 지원 범위: [Custom Instructions 지원 현황](https://docs.github.com/en/copilot/reference/custom-instructions-support)
+
 ---
 
 ## 태스크 1: 리포지토리 전체 지침 작성 (5분)
@@ -179,7 +181,7 @@ applyTo: "app/**"
 
 **① 테스트 지침 확인** — `tests/test_main.py`를 열고 Chat에 입력:
 
-> "get_todos 함수에 대한 테스트를 작성해줘"
+> "방금 생성한 testing.instructions.md 지침을 확인하고, 그 규칙에 맞게 get_todos 함수에 대한 테스트를 작성해줘"
 
 → 확인 포인트:
 - [ ] 함수명이 `test_동작_조건_결과()` 패턴인가?
@@ -187,14 +189,21 @@ applyTo: "app/**"
 - [ ] 정상 + 에러 케이스를 모두 작성했는가?
 
 **② API 코드 지침 확인** — `app/main.py`를 열고 Chat에 입력:
+적용될 지침: **.github/copilot-instructions.md, .github/instructions/api.instructions.md**
 
-> "GET /todos/{todo_id} 단건 조회 엔드포인트를 추가해줘"
+> "PATCH /todos/{id} 부분 수정 엔드포인트를 추가해줘"
 
-→ 확인 포인트:
-- [ ] `response_model=TodoResponse` 지정되어 있는가?
-- [ ] `status_code` 명시적으로 설정했는가?
-- [ ] 에러 메시지가 한국어인가? (예: `detail="TODO를 찾을 수 없습니다"`)
-- [ ] Google 스타일 docstring (Args/Returns/Raises)이 있는가?
+지침이 적용되면 다음이 변경됩니다:
+
+- [ ] **에러 처리**: `HTTPException(status_code=404, detail="한국어 메시지")`로 404를 처리하는가?
+- [ ] **에러 메시지**: 에러 메시지가 한국어로 작성되었는가?
+- [ ] **response_model**: `response_model=TodoResponse` 지정되어 있는가?
+
+어떤 인스트럭션을 참고했는지 알고 싶으면 아래 명령을 입력하세요:
+
+```
+참고한 모든 인스트럭션의 경로를 포함한 이름 알려줘
+```
 
 > 💡 경로 지정 지침은 `applyTo` 패턴과 일치하는 파일을 **열거나, 참조하거나, 수정할 때** 자동 적용됩니다.
 
@@ -202,9 +211,16 @@ applyTo: "app/**"
 
 ## ✅ 검증 체크리스트
 
-- [ ] `.github/copilot-instructions.md` (리포지토리 전체 지침) 생성 완료
-- [ ] `.github/instructions/testing.instructions.md` (경로 지정 지침) 생성
-- [ ] `.github/instructions/api.instructions.md` (경로 지정 지침) 생성
+### 태스크 1: 리포지토리 전체 지침
+- [ ] `.github/copilot-instructions.md` 파일 생성 완료
+
+### 태스크 2: 경로 지정 지침
+- [ ] `.github/instructions/testing.instructions.md` 생성 완료
+- [ ] `.github/instructions/api.instructions.md` 생성 완료
+
+### 태스크 3: 지침 동작 실습 및 검증
+- [ ] 테스트 경로 지정 지침 확인: `test_동작_조건_결과()` 네이밍 패턴, Given-When-Then 주석 적용됨
+- [ ] API 경로 지정 지침 확인: response_model 지정, 에러 메시지 한국어 적용됨
 - [ ] 경로 지정 지침이 해당 폴더에서만 적용됨을 확인
 
 ---

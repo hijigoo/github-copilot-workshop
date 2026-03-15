@@ -119,44 +119,25 @@ uvicorn app.main:app --reload
 
 ---
 
-## 🔧 에러가 나면? — Copilot으로 해결하기
+## 트러블슈팅
 
-Copilot이 생성한 코드는 **매번 다를 수 있어서** 서버 실행이나 테스트에서 에러가 날 수 있습니다.
-당황하지 마세요! Copilot 자체가 디버깅 도구입니다.
+<details>
+<summary><strong>🔧 에러가 나면? — Copilot으로 해결하기</strong></summary>
 
-### 방법 1: Copilot Chat에 "터미널 에러 고쳐줘"
+### 방법 1: Copilot Chat에 "에러 고쳐줘"
 
 1. Copilot Chat 열기: `Ctrl+Shift+I` (Mac: `Cmd+Shift+I`)
-2. 터미널에 에러가 떠 있는 상태에서 이렇게만 입력:
+2. 에러 메시지를 붙여넣고:
    ```
-   터미널에 에러가 났어. 분석해서 수정해줘
+   이 에러 수정해줘: [에러 메시지]
    ```
-3. Copilot이 **터미널 컨텍스트를 자동으로 읽고** 원인 분석 + 수정 코드를 제안합니다
-4. 제안된 코드의 **Apply** 클릭
 
-💡 에러 메시지를 직접 복사해서 붙여넣어도 됩니다:
-
-> ```
-> 이 에러 수정해줘: ImportError: cannot import name 'TodoUpdate' from 'app.models'
-> ```
-
-### 방법 2: 에러가 난 파일에서 Inline Chat 사용
-
-1. 에러가 발생한 코드 라인을 **선택**
-2. `Ctrl+I` (Mac: `Cmd+I`) 로 Inline Chat 열기
-3. 에러 내용을 설명:
-   ```
-   이 import에서 에러가 나. models.py에 TodoUpdate가 없어서 그런 것 같아. 수정해줘
-   ```
-4. 제안된 수정을 **Accept** 또는 **Discard**
-
-### 방법 3: 그래도 안 되면
+### 방법 2: 그래도 안 되면
 
 - `complete/` 폴더의 코드와 비교해 보세요
 - `complete/` 코드를 복사해서 진행해도 괜찮습니다 — 이번 단계의 목표는 **Inline Suggestion 체험**입니다
 
-> 💡 **사실 이 방법은 Step 2에서 배울 내용의 미리보기입니다!**
-> 에러가 나면 오히려 Copilot Chat을 미리 써볼 좋은 기회입니다.
+</details>
 
 ---
 

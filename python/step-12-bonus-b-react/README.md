@@ -69,7 +69,7 @@ npm run dev
 
 ---
 
-## 🚀 실습 1: 프로젝트 설정
+## 🚀 실습 1: 프로젝트 설정 (5분)
 
 ### 1-1. Tailwind CSS 설정
 
@@ -103,7 +103,7 @@ export default defineConfig({
 
 ---
 
-## 🚀 실습 2: API 클라이언트 생성
+## 🚀 실습 2: API 클라이언트 생성 (10분)
 
 **💬 Copilot Agent:**
 ```
@@ -128,7 +128,7 @@ src/api/types.ts 와 src/api/todoApi.ts 로 나눠줘.
 
 ---
 
-## 🚀 실습 3: 컴포넌트 구현
+## 🚀 실습 3: 컴포넌트 구현 (15분)
 
 ### 3-1. TODO 목록 컴포넌트
 
@@ -178,7 +178,7 @@ Chart 라이브러리 없이 Tailwind CSS 만으로 구현해줘.
 
 ---
 
-## 🚀 실습 4: 페이지 조합
+## 🚀 실습 4: 페이지 조합 (5분)
 
 **💬 Copilot Agent:**
 ```
@@ -194,16 +194,73 @@ App.tsx를 수정해서 다음 레이아웃을 만들어줘:
 
 ---
 
+## 🔧 백엔드 CORS 설정
+
+프론트엔드(`:5173`)에서 백엔드(`:8000`)로 직접 요청할 경우 CORS 설정이 필요합니다.
+Vite 프록시를 사용하면 CORS 없이도 동작하지만, 직접 연동하려면:
+
+**💬 Copilot Agent (FastAPI 프로젝트에서):**
+```
+FastAPI에 CORS 설정을 추가해줘.
+localhost:5173 과 localhost:3000 에서의 요청을 허용해야 해.
+CORSMiddleware를 사용해줘.
+```
+
+**예상 결과:**
+```python
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+
+---
+
+## 🚀 실습 5: 통합 테스트 (5분)
+
+### 5-1. 백엔드 실행
+
+```bash
+# FastAPI 프로젝트 디렉토리에서
+uvicorn app.main:app --reload
+```
+
+### 5-2. 프론트엔드 실행
+
+```bash
+# todo-frontend 디렉토리에서
+npm run dev
+```
+
+### 5-3. 동작 확인
+
+브라우저에서 `http://localhost:5173` 접속:
+
+| 확인 항목 | 동작 |
+|----------|------|
+| 목록 조회 | TODO 목록이 표시되는가? |
+| TODO 생성 | 폼에서 제출 시 목록에 추가되는가? |
+| 완료 토글 | 체크박스 클릭 시 상태가 변경되는가? |
+| 삭제 | 삭제 버튼 클릭 시 목록에서 제거되는가? |
+| 검색 | 검색 입력 시 해당 키워드만 표시되는가? |
+| 페이지네이션 | 10개 이상일 때 페이지 이동이 동작하는가? |
+
+---
+
 ## ✅ 검증 체크리스트
 
 - [ ] `npm run dev` 로 개발 서버 시작 (localhost:5173)
 - [ ] 백엔드 API와 연동 성공 (프록시 동작)
-- [ ] TODO 목록 조회 및 표시
-- [ ] TODO 추가 (폼 → POST → 목록 갱신)
-- [ ] TODO 완료 토글
-- [ ] TODO 삭제
-- [ ] 검색 기능 동작
-- [ ] 통계 시각화
+- [ ] API 클라이언트 생성 (`src/api/`)
+- [ ] TodoList 컴포넌트 구현
+- [ ] AddTodoForm 컴포넌트 구현
+- [ ] App.tsx에서 전체 레이아웃 조합
+- [ ] 백엔드 + 프론트엔드 통합 테스트 성공
+- [ ] CRUD 전체 동작 확인
 
 ---
 
@@ -222,3 +279,9 @@ App.tsx를 수정해서 다음 레이아웃을 만들어줘:
 - [Vite 공식 문서](https://vitejs.dev/)
 - [Tailwind CSS 공식 문서](https://tailwindcss.com/)
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
+
+---
+
+## 다음 단계
+
+→ [Step 13. Spring Boot 백엔드](../step-13-bonus-c-spring/README.md)
