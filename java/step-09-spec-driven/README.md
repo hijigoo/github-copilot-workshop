@@ -92,10 +92,6 @@ src/test/java/com/example/todo/
 └── TodoControllerTest.java ← 테스트 (Agent가 스펙에서 생성)
 ```
 
-> 📸 **[IntelliJ 스크린샷]** IntelliJ Project 탐색기에서 `.specs/` 폴더와 `context/` 폴더가 프로젝트 루트에 생성된 모습
->
-> ![SDD 폴더 구조](./images/step09-sdd-folder-structure.png)
-
 ---
 
 ## 태스크 1: 스펙 문서 작성 (7분)
@@ -258,7 +254,7 @@ Copilot Chat을 **Agent 모드로 전환**한 후 구현 계획 파일을 생성
 
 > 📸 **[IntelliJ 스크린샷]** Agent가 `.specs/` 문서를 읽고 분석한 후 `context/todo.md`에 구현 계획을 작성한 결과물이 IntelliJ 에디터에 표시된 모습
 >
-> ![Agent 구현 계획](./images/step09-context-plan.png)
+> ![Agent 구현 계획](../screenshot/step09-context-plan.png)
 
 ---
 
