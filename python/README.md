@@ -58,8 +58,6 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 | [10](step-10-bonus-readme/) | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
 | [11](step-11-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
 | [12](step-12-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
-| [13](step-13-bonus-c-spring/) | Spring Boot 백엔드 | 같은 TODO API를 Java로 다시 구현하며 언어 전환 체험 |
-| [14](step-14-bonus-e-speckit/) | Spec Kit | GitHub Spec Kit으로 Spec-Driven Development 워크플로우 자동화 |
 
 ---
 

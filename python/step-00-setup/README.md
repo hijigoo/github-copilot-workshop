@@ -73,7 +73,7 @@
 ### 4. IntelliJ 사용자 선택
 
 - **Python 트랙**: Python Plugin 설치 후 동일하게 진행
-- **Java/Kotlin 트랙**: `step-13-bonus-c-spring/` 에서 Spring Boot로 진행
+- **Java/Kotlin 트랙**: Java 트랙의 Step 01부터 Spring Boot로 진행
 
 ---
 

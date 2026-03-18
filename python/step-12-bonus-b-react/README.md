@@ -280,8 +280,4 @@ npm run dev
 - [Tailwind CSS 공식 문서](https://tailwindcss.com/)
 - [React TypeScript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/)
 
----
 
-## 다음 단계
-
-→ [Step 13. Spring Boot 백엔드](../step-13-bonus-c-spring/README.md)
