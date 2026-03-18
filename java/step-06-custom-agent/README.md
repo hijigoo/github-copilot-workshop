@@ -273,4 +273,4 @@ TodoService.java의 코드를 리팩토링해줘.
 
 ## 다음 단계
 
-→ [Step 7. Multi-Agent 워크플로우](../step-07-multi-agent/README.md)
+→ [Step 7. Sub-Agent 워크플로우](../step-07-sub-agent/README.md)

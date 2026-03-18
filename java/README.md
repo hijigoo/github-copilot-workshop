@@ -48,7 +48,7 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 | [04](step-04-prompt-files/) | Prompt Files | 반복 작업을 매크로처럼 한 번에 실행하는 프롬프트 파일 만들기 |
 | [05](step-05-agent/) | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
 | [06](step-06-custom-agent/) | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
-| [07](step-07-multi-agent/) | Multi-Agent | Agent 간 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
+| [07](step-07-sub-agent/) | Sub-Agent | Sub-Agent를 활용한 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
 | [08](step-08-advanced/) | 고급 워크플로우 | Plan 기능 + Custom Agent 조합으로 Vibe Coding 실습 |
 | [09](step-09-spec-driven/) | Spec-Driven Dev | 문서 기반 스펙 → 분석/계획 → 테스트 → 구현으로 전체 스킬 종합 실습 |
 
