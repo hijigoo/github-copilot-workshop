@@ -1,4 +1,4 @@
-# Step 9. Spec-Driven Development (SDD)
+# Step 10. Spec-Driven Development (SDD)
 
 > ⏱️ 25분 | 난이도 ⭐⭐
 >
@@ -197,7 +197,7 @@ tests/
 | updated_at | datetime | 자동 | 수정 시각 (수정 시 갱신) |
 
 ## 저장소
-- 현재 단계: 인메모리 딕셔너리 (Step 5에서 SQLite로 전환 예정)
+- 현재 단계: 인메모리 딕셔너리 (Step 6에서 SQLite로 전환 예정)
 ```
 
 ### 관찰 포인트
@@ -381,4 +381,4 @@ SDD에서 테스트 실패는 **정상**입니다. Red → Green이 목표니까
 
 ## 다음 단계
 
-→ 보너스 트랙으로 넘어가세요: [Step 10 — README 문서화](../step-10-bonus-readme/README.md)
+→ 보너스 트랙으로 넘어가세요: [Step 11 — README 문서화](../step-11-bonus-readme/README.md)

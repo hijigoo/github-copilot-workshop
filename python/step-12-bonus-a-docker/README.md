@@ -36,8 +36,8 @@
 
 **💬 Copilot Agent:**
 ```
-#file:step-05-agent/complete/app/main.py
-#file:step-05-agent/complete/requirements.txt
+#file:step-06-agent/complete/app/main.py
+#file:step-06-agent/complete/requirements.txt
 
 위 Python FastAPI TODO 앱을 위한 Dockerfile을 만들어줘.
 
@@ -84,8 +84,8 @@ curl로 API가 정상 동작하는지 확인해줘.
 직접 터미널에서 수동으로 테스트하려면:
 
 ```bash
-# step-05-agent/complete 디렉토리에서 실행
-cd step-05-agent/complete
+# step-06-agent/complete 디렉토리에서 실행
+cd step-06-agent/complete
 
 # Docker 이미지 빌드
 docker build -t todo-api .
@@ -236,4 +236,4 @@ docker-compose down
 
 ## 다음 단계
 
-→ [Step 12. React 프론트엔드](../step-12-bonus-b-react/README.md)
+→ [Step 13. React 프론트엔드](../step-13-bonus-b-react/README.md)

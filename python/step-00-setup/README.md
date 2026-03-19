@@ -113,7 +113,7 @@ python -c "import fastapi; print('FastAPI:', fastapi.__version__)"
 
 버전이 출력되면 성공! ✅
 
-> 테스트 도구(pytest, httpx)는 Step 4에서, DB(sqlmodel)는 Step 6 Agent 모드에서 설치합니다.
+> 테스트 도구(pytest, httpx)는 Step 4에서, DB(sqlmodel)는 Step 7 Agent 모드에서 설치합니다.
 > 각 단계의 `starter/requirements.txt`에 필요한 의존성이 포함되어 있습니다.
 
 ### Copilot 동작 확인
