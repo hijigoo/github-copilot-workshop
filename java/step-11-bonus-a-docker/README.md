@@ -44,9 +44,6 @@
 | 비루트 사용자 | `USER` 지시어로 루트가 아닌 사용자 설정 |
 | HEALTHCHECK | `/actuator/health` 엔드포인트 활용 |
 
-> 📸 **[IntelliJ 스크린샷]** Agent가 생성한 Dockerfile이 IntelliJ 에디터에 열리고, 멀티스테이지 빌드 구조가 보이는 모습
->
-> ![Dockerfile 생성 결과](./images/step10-dockerfile-result.png)
 
 ### 1-3. 이미지 빌드 및 실행 테스트
 
