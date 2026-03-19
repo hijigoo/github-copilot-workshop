@@ -46,19 +46,20 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 | [02](step-02-chat/) | Copilot Chat | Chat 패널에서 대화로 코드 생성·리팩터링하기 |
 | [03](step-03-instructions/) | Instructions | 프로젝트 규칙 파일을 만들어 반복 설명 없이 일관된 응답 받기 |
 | [04](step-04-prompt-files/) | Prompt Files | 반복 작업을 매크로처럼 한 번에 실행하는 프롬프트 파일 만들기 |
-| [05](step-05-agent/) | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
-| [06](step-06-custom-agent/) | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
-| [07](step-07-sub-agent/) | Sub-Agent | Sub-Agent를 활용한 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
-| [08](step-08-advanced/) | 고급 워크플로우 | Plan 기능 + Custom Agent 조합으로 Vibe Coding 실습 |
-| [09](step-09-spec-driven/) | Spec-Driven Dev | 문서 기반 스펙 → 분석/계획 → 테스트 → 구현으로 전체 스킬 종합 실습 |
+| [05](step-05-skills/) | Skills | 도메인 전문 지식을 Skills 파일로 만들어 Copilot에게 가르치기 |
+| [06](step-06-agent/) | Agent 모드 | 큰 작업(아키텍처 전환)을 Agent에게 통째로 맡기기 |
+| [07](step-07-custom-agent/) | Custom Agent | 나만의 전문 Agent(코드 리뷰, DB 등) 직접 만들기 |
+| [08](step-08-sub-agent/) | Sub-Agent | Sub-Agent를 활용한 역할 분담 + 자동 연쇄 호출로 팀 협업 시뮬레이션 |
+| [09](step-09-advanced/) | 고급 워크플로우 | Plan 기능 + Custom Agent 조합으로 Vibe Coding 실습 |
+| [10](step-10-spec-driven/) | Spec-Driven Dev | 문서 기반 스펙 → 분석/계획 → 테스트 → 구현으로 전체 스킬 종합 실습 |
 
 ### 보너스 트랙
 
 | Step | 주제 | 무엇을 배우나요? |
 |:----:|------|-----------------|
-| [10](step-10-bonus-readme/) | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
-| [11](step-11-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
-| [12](step-12-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
+| [11](step-11-bonus-readme/) | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
+| [12](step-12-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
+| [13](step-13-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
 
 ---
 

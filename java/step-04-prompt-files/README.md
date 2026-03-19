@@ -215,6 +215,6 @@ Chat에 입력:
 
 ## 다음 단계
 
-→ [Step 5. Agent 모드](../step-05-agent/README.md)
+→ [Step 5. Skills](../step-05-skills/README.md)
 
-> 💡 Prompt File과 함께 더 체계적인 개발 방법론이 궁금하다면 → [Step 9. SDD (보너스)](../step-09-spec-driven/README.md)
+> 💡 Prompt File과 함께 더 체계적인 개발 방법론이 궁금하다면 → [Step 10. SDD (보너스)](../step-10-spec-driven/README.md)
