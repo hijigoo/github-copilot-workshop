@@ -40,9 +40,11 @@ Skills는 `.github/skills/` 디렉토리에 위치하는 Markdown 파일로, Cop
 ### Instructions와의 차이점
 
 - **Instructions** (`.github/copilot-instructions.md`): 모든 대화에 항상 포함
-- **Skills** (`.github/skills/*.md`): Copilot이 대화 맥락을 분석하여 관련성이 높을 때 자동으로 포함
+- **Skills** (`.github/skills/<skill-name>/SKILL.md`): Copilot이 대화 맥락을 분석하여 관련성이 높을 때 자동으로 포함
 
 ### Skills 파일 구조
+
+`.github/skills/<skill-name>/SKILL.md` 형식으로 작성합니다:
 
 ```markdown
 ---
@@ -67,17 +69,23 @@ description: '이 스킬이 다루는 내용에 대한 설명'
 프로젝트 루트에서 `.github/skills/` 디렉토리를 만드세요:
 
 ```
-📁 프로젝트 루트
- └── 📁 .github
-      ├── 📄 copilot-instructions.md    ← Step 3에서 만든 것
-      ├── 📁 prompts/                   ← Step 4에서 만든 것
-      └── 📁 skills/                    ← 🆕 이번 스텝에서 생성
-           └── 📄 java-junit.md
+.github/
+├── copilot-instructions.md              ← Step 3에서 생성 (항상 적용)
+├── instructions/
+│   ├── testing.instructions.md          ← Step 3에서 생성 (테스트 파일에 적용)
+│   └── api.instructions.md              ← Step 3에서 생성 (Controller에 적용)
+├── prompts/                             ← Step 4에서 생성
+│   ├── test.prompt.md
+│   ├── add-endpoint.prompt.md
+│   └── refactor.prompt.md
+└── skills/                              ← 이번 스텝에서 생성!
+    └── java-junit/
+        └── SKILL.md                    → Copilot이 테스트 관련 요청 시 자동 참고
 ```
 
 ### 1-2. Skills 파일 작성
 
-`.github/skills/java-junit.md` 파일을 만들고 아래 내용을 붙여넣으세요:
+`.github/skills/java-junit/SKILL.md` 파일을 만들고 아래 내용을 붙여넣으세요:
 
 ```markdown
 ---
@@ -204,32 +212,21 @@ Copilot이 생성한 테스트 코드에서 다음 사항을 확인하세요:
 
 ## 태스크 3: 추가 Skills 파일 만들기 (5분, 선택)
 
-### 3-1. Copilot에게 Skills 생성 요청
-
-직접 Skills 파일을 만들 수도 있지만, Copilot에게 요청할 수도 있습니다:
-
-```
-Spring Boot REST API에 대한 Skills 파일을 .github/skills/spring-rest-api.md에 만들어줘.
-name은 spring-rest-api, description은 'Spring Boot REST API 설계 모범 사례'로 해줘.
-```
-
-### 3-2. 다양한 Skills 아이디어
-
 팀에서 활용할 수 있는 Skills 예시:
 
 | 파일명 | 용도 |
 |--------|------|
-| `java-junit.md` | JUnit 5 테스트 모범 사례 |
-| `spring-rest-api.md` | REST API 설계 규칙 |
-| `java-logging.md` | 로깅 표준 (SLF4J + Logback) |
-| `code-review.md` | 코드 리뷰 체크리스트 |
-| `error-handling.md` | 예외 처리 패턴 |
+| `java-junit/SKILL.md` | JUnit 5 테스트 모범 사례 |
+| `spring-rest-api/SKILL.md` | REST API 설계 규칙 |
+| `java-logging/SKILL.md` | 로깅 표준 (SLF4J + Logback) |
+| `code-review/SKILL.md` | 코드 리뷰 체크리스트 |
+| `error-handling/SKILL.md` | 예외 처리 패턴 |
 
 ---
 
 ## 완성 확인
 
-- [ ] `.github/skills/java-junit.md` 파일이 생성됨
+- [ ] `.github/skills/java-junit/SKILL.md` 파일이 생성됨
 - [ ] YAML Frontmatter에 `name`과 `description`이 포함됨
 - [ ] Copilot이 테스트 작성 시 Skills의 규칙을 참고함
 - [ ] `@ParameterizedTest` 등 Skills에 명시된 패턴이 적용됨
