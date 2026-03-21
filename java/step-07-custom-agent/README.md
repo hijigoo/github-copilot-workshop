@@ -24,9 +24,9 @@ Chat에서 Agent 드롭다운을 통해 호출할 수 있습니다.
 
 ```
 .github/agents/
-├── reviewer.agent.md      → @reviewer 로 호출
-├── builder.agent.md       → @builder 로 호출
-└── refactor.agent.md      → @refactor 로 호출
+├── reviewer.agent.md      → reviewer 로 선택
+├── builder.agent.md       → builder 로 선택
+└── refactor.agent.md      → refactor 로 선택
 ```
 
 ![Agent 폴더 구조](../screenshot/step07-agents-folder.png)
@@ -46,7 +46,7 @@ tools: ["read_file", "replace_string_in_file", "grep_search"]
 | 속성 | 필수 | 설명 |
 |------|------|------|
 | `name` | 선택 | 표시 이름 (생략 시 파일명) |
-| `description` | **필수** | Agent의 목적과 전문 영역 설명 |
+| `description` | 선택 | Agent의 목적과 전문 영역 설명 (Agent 드롭다운에 placeholder 텍스트로 표시) |
 | `tools` | 선택 | 사용 가능한 도구 목록 (생략 시 모든 도구) |
 
 ### 빌트인 도구 목록 (Built-in Tools)

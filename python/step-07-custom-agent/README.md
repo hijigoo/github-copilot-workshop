@@ -24,9 +24,9 @@ Chat에서 Agent 드롭다운을 통해 호출할 수 있습니다.
 
 ```
 .github/agents/
-├── reviewer.agent.md      → @reviewer 로 호출
-├── builder.agent.md       → @builder 로 호출
-└── refactor.agent.md      → @refactor 로 호출
+├── reviewer.agent.md      → reviewer 로 선택
+├── builder.agent.md       → builder 로 선택
+└── refactor.agent.md      → refactor 로 선택
 ```
 
 ### Agent 프로필 구조
@@ -34,7 +34,7 @@ Chat에서 Agent 드롭다운을 통해 호출할 수 있습니다.
 ```markdown
 ---
 name: 에이전트-이름              # 선택 (생략 시 파일명 사용)
-description: "에이전트 설명"     # 필수
+description: "에이전트 설명"     # 선택 (Agent 드롭다운에 placeholder 텍스트로 표시)
 tools: ["read", "edit", "search"]  # 선택 (생략 시 모든 도구 사용)
 ---
 
@@ -44,7 +44,7 @@ tools: ["read", "edit", "search"]  # 선택 (생략 시 모든 도구 사용)
 | 속성 | 필수 | 설명 |
 |------|------|------|
 | `name` | 선택 | 표시 이름 (생략 시 파일명) |
-| `description` | **필수** | Agent의 목적과 전문 영역 설명 |
+| `description` | 선택 | Agent의 목적과 전문 영역 설명 (Agent 드롭다운에 placeholder 텍스트로 표시) |
 | `tools` | 선택 | 사용 가능한 도구 목록 (생략 시 모든 도구) |
 | `model` | 선택 | AI 모델 지정 (IDE 전용) |
 
@@ -58,7 +58,7 @@ Chat 입력창 하단의 **Agent 선택 버튼**(dropdown)에서 원하는 Agent
 
 ---
 
-## 태스크 1: 코드 리뷰 Agent — @reviewer (7분)
+## 태스크 1: 코드 리뷰 Agent — reviewer (7분)
 
 `.github/agents/reviewer.agent.md` 생성:
 
@@ -108,9 +108,6 @@ tools: ["read", "search"]
 - 총 이슈 수 (Critical/Warning/Suggestion 별)
 - 가장 시급한 3가지
 - 전반적인 코드 품질 점수 (1-10)
-
-## 참고 파일
-#file:app/schemas.py
 ```
 
 ### 사용법
@@ -121,12 +118,11 @@ Chat 하단의 Agent 선택 버튼에서 `reviewer`를 선택한 후:
 #file:app/main.py 이 코드를 리뷰해줘
 ```
 
-> 📸 **스크린샷**: Chat에서 Agent 선택 드롭다운에서 커스텀 에이전트 목록이 나타나는 모습
-> ![Custom Agent 호출](./assets/custom-agent-mention.png)
+![Custom Agent 호출](../screenshot/step07-custom-agent-mention.png)
 
 ---
 
-## 태스크 2: 기능 빌더 Agent — @builder (7분)
+## 태스크 2: 기능 빌더 Agent — builder (7분)
 
 `.github/agents/builder.agent.md` 생성:
 
@@ -169,11 +165,6 @@ description: "기능 요청을 받아 프로젝트 아키텍처에 맞게 전체
 - 기존 API의 동작을 깨뜨리지 마세요
 - 모든 새 코드에 한글 주석/docstring을 포함하세요
 - 각 Phase 완료 시 사용자에게 확인 요청
-
-## 참고 파일
-#file:app/schemas.py
-#file:app/models.py
-#file:app/main.py
 ```
 
 ### 사용법
@@ -184,9 +175,11 @@ Chat 하단의 Agent 선택 버튼에서 `builder`를 선택한 후:
 TODO에 태그(tags) 기능을 추가해줘. 하나의 TODO에 여러 태그를 붙일 수 있어야 해.
 ```
 
+![Builder Agent 실행](../screenshot/step07-builder-agent-execution.png)
+
 ---
 
-## 태스크 3: 도구 제한 Agent — @refactor (6분)
+## 태스크 3: 도구 제한 Agent — refactor (6분)
 
 `.github/agents/refactor.agent.md` 생성:
 
@@ -226,11 +219,6 @@ tools: ["read", "edit", "search", "execute"]
 - 외부 동작(API 응답)을 변경하지 마세요
 - 리팩토링과 기능 추가를 섞지 마세요
 - 테스트 없이 코드를 수정하지 마세요
-
-## 참고 파일
-#file:app/main.py
-#file:app/schemas.py
-#file:app/models.py
 ```
 
 > 💡 `tools` 속성의 핵심: `tools: ["read", "search"]`로 설정하면 **읽기 전용** Agent가 됩니다.
@@ -262,23 +250,9 @@ app/main.py의 코드를 리팩토링해줘.
 - [ ] `.github/agents/reviewer.agent.md` 생성
 - [ ] `.github/agents/builder.agent.md` 생성
 - [ ] `.github/agents/refactor.agent.md` 생성
-- [ ] `@reviewer`에게 기존 `app/main.py` 리뷰 요청 → 구조화된 피드백 수신
-- [ ] `@builder`에게 "태그 기능 추가" 요청 → 분석→Schema→Model→라우트→테스트 순서 실행
-- [ ] `@refactor`에게 코드 개선 요청 → `tools` 제한 동작 확인
-
----
-
-## 🔧 에러가 나면? — Custom Agent에게 수정 요청
-
-Custom Agent가 생성한 코드에 에러가 나면, **같은 Agent에게 수정을 요청**하세요:
-```
-방금 생성한 코드에서 에러가 나. 터미널 에러 확인해서 수정해줘
-```
-
-Agent가 자체 규칙(Instructions)을 따르면서 수정하므로 일관된 코드 스타일이 유지됩니다.
-
-> 💡 Agent의 결과가 계속 안 맞으면 `.agent.md` 파일의 프롬프트를 더 구체적으로 보강해 보세요.
-> 그래도 안 되면 `complete/` 폴더의 코드와 비교해 보세요.
+- [ ] `reviewer` Agent에게 기존 `app/main.py` 리뷰 요청 → 구조화된 피드백 수신
+- [ ] `builder` Agent에게 "태그 기능 추가" 요청 → 분석→Schema→Model→라우트→테스트 순서 실행
+- [ ] `refactor` Agent에게 코드 개선 요청 → `tools` 제한 동작 확인
 
 ---
 
