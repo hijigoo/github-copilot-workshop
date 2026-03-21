@@ -42,6 +42,8 @@ Chat에서 `/파일명`으로 호출할 수 있습니다.
 └── refactor.prompt.md       → /refactor 로 호출
 ```
 
+![Prompt Files 폴더 구조](../screenshot/step04-prompts-folder.png)
+
 ### 프롬프트 파일 구조
 
 ```markdown
@@ -55,8 +57,12 @@ description: "설명"
 
 | 부분 | 역할 |
 |------|------|
-| `agent` | 실행 모드 지정. 아래 값 중 하나를 선택 |
+| `agent` | 프롬프트를 실행할 에이전트 지정. (미지정 시 현재 에이전트 사용, `tools` 지정 시 기본값은 `agent`) |
 | `description` | Chat에서 `/명령어` 입력 시 목록에 표시되는 설명 텍스트 |
+| `name` | 프롬프트 이름. Chat에서 `/` 뒤에 표시됨 (미지정 시 파일명 사용) |
+| `model` | 프롬프트 실행 시 사용할 언어 모델 (미지정 시 현재 선택된 모델 사용) |
+| `tools` | 프롬프트에서 사용할 도구 목록. MCP 서버 전체 도구는 `<서버명>/*` 형식 |
+| `argument-hint` | Chat 입력란에 표시되는 힌트 텍스트 |
 | 프롬프트 본문 | `---` 아래의 마크다운 내용. `#file:`, `${input:}` 등을 사용해 컨텍스트와 사용자 입력을 포함 |
 
 **`agent` 속성 값:**
@@ -65,7 +71,8 @@ description: "설명"
 |----|------|
 | `"agent"` | **Agent 모드** — 파일 생성·수정, 터미널 명령 실행, 도구 호출 등 자율적으로 작업 수행 |
 | `"ask"` | **Ask 모드** — 코드 설명, 질문 답변 등 읽기 전용 응답만 제공 (파일 수정 불가) |
-| `"edit"` | **Edit 모드** — 지정된 파일에 대한 수정만 수행 (터미널 실행 등 불가) |
+| `"plan"` | **Plan 모드** — 구현 계획을 생성하고 제안 (직접 실행하지 않음) |
+| 커스텀 에이전트 이름 | `.github/agents/` 에 정의된 커스텀 에이전트를 지정하여 실행 |
 
 ---
 
@@ -99,7 +106,7 @@ description: "선택한 모듈에 대한 테스트를 자동 생성합니다"
 3. Copilot이 해당 엔드포인트의 테스트를 자동 생성
 
 > 📸 **스크린샷**: Chat에서 `/test` 입력 시 프롬프트 파일 목록이 나타나는 모습
-> ![Prompt File 자동완성](./assets/prompt-file-autocomplete.png)
+> ![Prompt File 자동완성](../screenshot/step04-prompt-file-autocomplete.png)
 
 ---
 
