@@ -255,6 +255,9 @@ Copilot Chat을 **Agent 모드로 전환**한 후 구현 계획 파일을 생성
 - [ ] `context/todo.md`에 체계적인 구현 계획이 작성되었는가?
 - [ ] 파일별 역할이 명확히 정리되었는가?
 
+> 📸 **스크린샷**: Agent가 `.specs/` 문서를 읽고 `context/todo.md`에 구현 계획을 작성한 결과
+> ![Agent 구현 계획](../screenshot/step10-context-plan.png)
+
 ---
 
 ## 태스크 3: 테스트 먼저 작성 (Test First) (5분)

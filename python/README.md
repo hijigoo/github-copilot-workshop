@@ -70,4 +70,4 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 
 ## Java 버전
 
-같은 커리큘럼의 Java(Spring Boot + IntelliJ) 버전은 [java/](../java/README.md)에서 확인하세요.
+같은 커리큘럼의 Java(Spring Boot) 버전은 [java/](../java/README.md)에서 확인하세요.

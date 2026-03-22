@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: "agent"
 description: "Spec-Driven Development 워크플로우로 새 기능을 구현합니다. 스펙 → 테스트 → 구현 → 검증 순서를 따릅니다."
 ---
 

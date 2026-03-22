@@ -20,13 +20,13 @@
 ## 왜 이게 첫 번째인가?
 
 가장 낮은 진입 장벽입니다.
-코드를 치는 도중에 AI가 **회색 텍스트(Ghost Text)**로 제안하는 것을 `Tab`으로 수락하면 됩니다.
+코드를 치는 도중에 AI가 **회색 텍스트(Ghost Text)** 로 제안하는 것을 `Tab`으로 수락하면 됩니다.
 
 ---
 
 ## 태스크 1: TODO 모델 작성 (5분)
 
-`app/models.py` 파일을 열고, **아래 코드까지만 타이핑**한 뒤 멈추세요:
+`app/models.py` 파일을 생성하고, **아래 코드까지만 타이핑**한 뒤 멈추세요:
 
 ```python
 from pydantic import BaseModel
@@ -38,17 +38,17 @@ class TodoCreate(BaseModel):
     # ← 여기서 멈추고 Tab! Copilot이 나머지 필드를 제안합니다
 ```
 
-> 📸 **스크린샷**: 회색 Ghost Text로 Copilot이 나머지 필드를 제안하는 모습
-> ![Inline Suggestion Ghost Text](./assets/inline-ghost-text.png)
+![Inline Suggestion Ghost Text](../screenshot/step01-inline-ghost-text.png)
 
 ### Copilot 조작법
 
-| 동작 | VS Code (Win/Linux) | VS Code (Mac) | IntelliJ |
-|------|-------------------|---------------|----------|
-| 제안 수락 | `Tab` | `Tab` | `Tab` |
-| 제안 거절 | `Esc` | `Esc` | `Esc` |
-| 다른 제안 | `Alt+]` / `Alt+[` | `Option+]` / `Option+[` | `Alt+]` / `Alt+[` |
-| 단어 단위 수락 | `Ctrl+→` | `Cmd+→` | — |
+| 동작 | VS Code (Win/Linux) | VS Code (Mac) |
+|------|-------------------|---------------|
+| 제안 수락 | `Tab` | `Tab` |
+| 제안 거절 | `Esc` | `Esc` |
+| 다른 제안 보기 | `Alt+]` / `Alt+[` | `Option+]` / `Option+[` |
+| 단어 단위 수락 | `Ctrl+→` | `Cmd+→` |
+| 여러 제안 새 탭 | `Ctrl+Enter` | `Ctrl+Enter` |
 
 ### 목표 모델들
 
@@ -61,7 +61,7 @@ class TodoCreate(BaseModel):
 
 ## 태스크 2: CRUD 엔드포인트 작성 (10분)
 
-`app/main.py` — **한글 주석을 먼저 쓰고** 코드가 따라오는 패턴:
+`app/main.py` 파일을 생성하고 — **한글 주석을 먼저 쓰고** 코드가 따라오는 패턴:
 
 ```python
 from fastapi import FastAPI, HTTPException
@@ -100,8 +100,7 @@ uvicorn app.main:app --reload
 
 브라우저에서 [http://localhost:8000/docs](http://localhost:8000/docs) 접속 → Swagger UI
 
-> 📸 **스크린샷**: Swagger UI에서 4개 엔드포인트가 표시된 화면
-> ![Swagger UI](./assets/swagger-ui-step01.png)
+![Swagger UI](../screenshot/step01-swagger-ui.png)
 
 - POST /todos 로 TODO 생성
 - GET /todos 로 목록 확인

@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: "agent"
 description: "테스트 코드를 자동 생성합니다. 대상 모듈의 스키마를 참조하여 pytest + TestClient 기반 테스트를 작성합니다."
 ---
 

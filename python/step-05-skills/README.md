@@ -4,7 +4,7 @@
 >
 > 🎯 **핵심 학습: `.github/skills/<name>/SKILL.md`**
 >
-> **체감: "Copilot이 우리 팀의 테스트 규칙을 알고 있다!"**
+> **체감: "Copilot이 우리 팀의 에러 처리 규칙을 알고 있다!"**
 
 ---
 
@@ -62,7 +62,7 @@ description: '이 스킬이 다루는 내용에 대한 설명'
 
 ---
 
-## 태스크 1: pytest Skills 파일 생성 (5분)
+## 태스크 1: 에러 처리 Skills 파일 생성 (5분)
 
 ### 1-1. Skills 디렉토리 생성
 
@@ -75,134 +75,125 @@ description: '이 스킬이 다루는 내용에 대한 설명'
 │   ├── testing.instructions.md          ← Step 3에서 생성 (테스트 파일에 적용)
 │   └── api.instructions.md              ← Step 3에서 생성 (라우트 핸들러에 적용)
 ├── prompts/                             ← Step 4에서 생성
-│   ├── test.prompt.md
+│   ├── test-code.prompt.md
 │   ├── refactor.prompt.md
 │   └── spec-implement.prompt.md
 └── skills/                              ← 이번 스텝에서 생성!
-    └── python-pytest/
-        └── SKILL.md                     → Copilot이 테스트 관련 요청 시 자동 참고
+    └── fastapi-error-handling/
+        └── SKILL.md                     → Copilot이 에러 처리 관련 요청 시 자동 참고
 ```
 
 ### 1-2. Skills 파일 작성
 
-`.github/skills/python-pytest/SKILL.md` 파일을 만들고 아래 내용을 붙여넣으세요:
+`.github/skills/fastapi-error-handling/SKILL.md` 파일을 만들고 아래 내용을 붙여넣으세요:
 
 ```markdown
 ---
-name: python-pytest
-description: 'pytest를 활용한 Python 단위 테스트 및 픽스처 모범 사례'
+name: fastapi-error-handling
+description: 'FastAPI 애플리케이션의 에러 처리 및 예외 관리 모범 사례'
 ---
 
-# pytest 모범 사례
+# FastAPI 에러 처리 모범 사례
 
-목표는 pytest를 사용하여 효과적인 단위 테스트를 작성하는 것이며, 픽스처, 파라미터화 테스트, FastAPI 테스트를 포함합니다.
+목표는 FastAPI 애플리케이션에서 일관되고 사용자 친화적인 에러 응답을 제공하는 것입니다.
 
-## 프로젝트 설정
+## 커스텀 예외 클래스
 
-- 테스트 파일은 `tests/` 디렉토리에 위치시킵니다.
-- 다음 패키지를 설치합니다:
-  - `pytest`
-  - `httpx` (FastAPI 비동기 테스트용)
-- 테스트 실행:
-  - `pytest -v`
-  - `pytest -v tests/test_specific.py`
+- 도메인별 커스텀 예외를 정의합니다. (예: `TodoNotFoundError`, `DuplicateTodoError`)
+- 기본 예외 클래스를 만들어 공통 속성을 관리합니다.
+- 예외에는 항상 사용자 친화적인 한국어 메시지를 포함합니다.
 
-## 테스트 구조
+```python
+class AppException(Exception):
+    """애플리케이션 기본 예외 클래스"""
+    def __init__(self, message: str, status_code: int = 400):
+        self.message = message
+        self.status_code = status_code
 
-- 테스트 파일 이름은 `test_`로 시작해야 합니다. (예: `test_todo.py`)
-- 테스트 함수 이름은 `test_`로 시작해야 합니다.
-- 관련 테스트를 클래스로 그룹화합니다. (예: `TestCreateTodo`, `TestListTodos`)
-- 클래스 이름은 `Test`로 시작해야 합니다.
-- Arrange-Act-Assert (AAA) 패턴을 따릅니다.
+class TodoNotFoundError(AppException):
+    """TODO 항목을 찾을 수 없을 때 발생하는 예외"""
+    def __init__(self, todo_id: int):
+        super().__init__(
+            message=f"TODO(id={todo_id})를 찾을 수 없습니다",
+            status_code=404
+        )
+```
 
-## Fixtures (픽스처)
+## 에러 응답 스키마
 
-- `conftest.py`에 공유 픽스처를 정의합니다.
-- `@pytest.fixture`로 테스트 데이터와 의존성을 관리합니다.
-- 픽스처 스코프:
-  - `function` (기본값): 각 테스트마다 실행
-  - `class`: 클래스당 한 번 실행
-  - `module`: 모듈당 한 번 실행
-  - `session`: 전체 테스트 세션당 한 번 실행
-- `yield`를 사용해 setup/teardown을 처리합니다.
+- 모든 에러 응답은 통일된 JSON 구조를 따릅니다:
+  ```json
+  {
+    "detail": "에러 메시지",
+    "error_code": "NOT_FOUND",
+    "timestamp": "2024-01-01T00:00:00Z"
+  }
+  ```
+- Pydantic `BaseModel`로 에러 응답 스키마를 정의합니다.
+- `response_model`과 `responses`를 엔드포인트에 명시합니다.
 
-## 일반 테스트
+## 예외 핸들러 등록
 
-- 하나의 테스트는 하나의 동작만 검증해야 합니다.
-- 테스트는 서로 독립적이고 반복 실행 가능해야 합니다.
-- 테스트 간 의존성을 피해야 합니다.
-- 헬퍼 함수 (예: `create_test_todo()`)로 테스트 데이터 생성을 간소화합니다.
+- `@app.exception_handler()`로 커스텀 예외를 처리합니다.
+- 전역 예외 핸들러로 예상치 못한 에러를 잡습니다.
+- 에러 로깅을 포함합니다.
 
-## 파라미터화 테스트
+```python
+@app.exception_handler(AppException)
+async def app_exception_handler(request: Request, exc: AppException):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.message, "error_code": exc.error_code}
+    )
+```
 
-- `@pytest.mark.parametrize`를 사용합니다.
-- 단일 파라미터:
-  - `@pytest.mark.parametrize("input_val", [1, 2, 3])`
-- 복수 파라미터:
-  - `@pytest.mark.parametrize("input_val, expected", [(1, 2), (2, 4)])`
-- ID 지정:
-  - `ids=["case1", "case2"]`로 테스트 케이스에 이름 부여
+## HTTP 상태 코드 규칙
 
-## Assertions (검증)
+- `400 Bad Request`: 잘못된 입력 데이터
+- `404 Not Found`: 리소스를 찾을 수 없음
+- `409 Conflict`: 중복 리소스 생성 시도
+- `422 Unprocessable Entity`: 유효성 검증 실패 (FastAPI 기본)
+- `500 Internal Server Error`: 예상치 못한 서버 에러
 
-- `assert` 문을 직접 사용합니다.
-- 예외 테스트:
-  - `with pytest.raises(ValueError):`
-  - `with pytest.raises(ValueError, match="메시지 패턴"):`
-- 근사값 비교:
-  - `pytest.approx()`
+## 유효성 검증 에러
 
-## FastAPI 테스트
+- Pydantic `ValidationError`는 FastAPI가 자동으로 422로 변환합니다.
+- 추가 비즈니스 규칙 검증은 커스텀 예외로 처리합니다.
+- 검증 에러 메시지는 한국어로 작성합니다.
 
-- `TestClient`를 사용하여 API 엔드포인트를 테스트합니다.
-- `conftest.py`에서 의존성 오버라이드를 설정합니다.
-- 인메모리 SQLite로 DB 격리를 수행합니다.
-- HTTP 메서드별 테스트: `client.get()`, `client.post()`, `client.patch()`, `client.delete()`
-- 응답 검증: `response.status_code`, `response.json()`
+## 에러 처리 안티패턴
 
-## 테스트 구성
-
-- 기능 또는 엔드포인트별로 테스트 파일을 분리합니다.
-- `@pytest.mark.skip(reason="사유")`으로 테스트 비활성화
-- `@pytest.mark.xfail`로 예상 실패 표시
-- `-k` 옵션으로 특정 테스트만 실행:
-  - `pytest -k "test_create"`
-- `--tb=short`로 간결한 트레이스백 출력
+- ❌ 빈 `except:` 블록 사용 금지
+- ❌ 에러를 삼키지 않기 (조용히 무시하지 않기)
+- ❌ 500 에러에 내부 구현 세부사항 노출 금지
+- ❌ `HTTPException`을 직접 raise하는 대신 커스텀 예외 사용
+- ✅ 항상 적절한 로깅과 함께 에러를 처리
 ```
 
 ---
 
 ## 태스크 2: Skills 동작 확인 (5분)
 
-### 2-1. 테스트 작성 요청
+### 2-1. 에러 처리 추가 요청
 
-Copilot Chat (Agent 모드)에서 테스트 작성을 요청해 보세요:
+Copilot Chat (Agent 모드)에서 에러 처리 추가를 요청해 보세요:
 
 ```
-TODO API의 엔드포인트에 대한 테스트를 작성해줘
+TODO API에 체계적인 에러 처리를 추가해줘
 ```
 
 ### 2-2. Skills 적용 확인
 
-Copilot이 생성한 테스트 코드에서 다음 사항을 확인하세요:
+Copilot이 생성한 코드에서 다음 사항을 확인하세요:
 
-- [ ] 테스트 파일 이름이 `test_`로 시작하는가? (예: `test_todo.py`)
-- [ ] `conftest.py`에 공유 픽스처가 정의되었는가?
-- [ ] 관련 테스트가 클래스로 그룹화되었는가? (예: `TestCreateTodo`)
-- [ ] AAA (Arrange-Act-Assert) 패턴을 따르고 있는가?
+- [ ] 커스텀 예외 클래스가 정의되었는가? (예: `TodoNotFoundError`)
+- [ ] 통일된 에러 응답 JSON 구조를 따르는가?
+- [ ] `@app.exception_handler()`로 예외 핸들러가 등록되었는가?
+- [ ] 적절한 HTTP 상태 코드가 사용되었는가? (404, 400 등)
 
-> 💡 Skills가 없을 때와 비교하면 차이가 확연합니다. Skills 파일을 삭제하고 같은 요청을 해보면 Copilot이 다른 스타일로 테스트를 생성하는 것을 확인할 수 있습니다.
+![Skills 적용 결과](../screenshot/step05-skills-error-handling.png)
 
-### 2-3. 파라미터화 테스트 요청
-
-```
-할 일 제목의 유효성 검사를 파라미터화 테스트로 작성해줘.
-빈 문자열, None, 공백만 있는 경우를 테스트해야 해.
-```
-
-확인 포인트:
-- [ ] `@pytest.mark.parametrize`가 사용되었는가?
-- [ ] 여러 케이스가 하나의 테스트 함수로 검증되는가?
+> 💡 Skills가 없을 때와 비교하면 차이가 확연합니다. Skills 파일을 삭제하고 같은 요청을 해보면 Copilot이 단순히 `HTTPException`만 사용하는 것을 확인할 수 있습니다.
 
 ---
 
@@ -212,20 +203,19 @@ Copilot이 생성한 테스트 코드에서 다음 사항을 확인하세요:
 
 | 파일명 | 용도 |
 |--------|------|
+| `fastapi-error-handling/SKILL.md` | 에러 처리 및 예외 관리 모범 사례 |
 | `python-pytest/SKILL.md` | pytest 테스트 모범 사례 |
 | `fastapi-rest/SKILL.md` | FastAPI REST API 설계 규칙 |
 | `python-logging/SKILL.md` | 로깅 표준 (logging 모듈) |
 | `code-review/SKILL.md` | 코드 리뷰 체크리스트 |
-| `error-handling/SKILL.md` | 예외 처리 패턴 |
 
 ---
 
 ## 완성 확인
 
-- [ ] `.github/skills/python-pytest/SKILL.md` 파일이 생성됨
-- [ ] YAML Frontmatter에 `name`과 `description`이 포함됨
-- [ ] Copilot이 테스트 작성 시 Skills의 규칙을 참고함
-- [ ] `@pytest.mark.parametrize` 등 Skills에 명시된 패턴이 적용됨
+- [ ] `.github/skills/fastapi-error-handling/SKILL.md` 파일이 생성됨
+- [ ] Copilot이 에러 처리 작성 시 Skills의 규칙을 참고함
+- [ ] 커스텀 예외 클래스, 통일된 에러 응답 등 Skills에 명시된 패턴이 적용됨
 
 ---
 

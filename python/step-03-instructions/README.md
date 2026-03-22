@@ -41,6 +41,8 @@ Copilot은 다음 유형의 사용자 지정 지침 파일을 지원합니다:
     └── api.instructions.md          ← app/** 에서만 적용 (내용에 폴더 지정)
 ```
 
+![Instructions Screenshot](../screenshot/step03-instructions.png)
+
 > 📖 자세한 내용: [GitHub Copilot에 대한 리포지토리 사용자 지정 지침 추가하기](https://docs.github.com/ko/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode)
 
 > 📖 지원 범위: [Custom Instructions 지원 현황](https://docs.github.com/en/copilot/reference/custom-instructions-support)
@@ -179,25 +181,34 @@ applyTo: "app/**"
 
 ### 검증: 경로 지정 지침 동작 확인
 
-**① 테스트 지침 확인** — `tests/test_main.py`를 열고 Chat에 입력:
+**테스트 지침 확인** — 
 
-> "방금 생성한 testing.instructions.md 지침을 확인하고, 그 규칙에 맞게 get_todos 함수에 대한 테스트를 작성해줘"
+```
+main.py 함수에 대한 테스트를 작성해줘
+```
 
 → 확인 포인트:
 - [ ] 함수명이 `test_동작_조건_결과()` 패턴인가?
 - [ ] `# Given:` / `# When:` / `# Then:` 주석이 있는가?
 - [ ] 정상 + 에러 케이스를 모두 작성했는가?
 
+![테스트 지침 적용 결과](../screenshot/step03-testing-instructions-result.png)
+![테스트 지침 적용 결과](../screenshot/step03-testing-instructions-result-2.png)
+
+
 **② API 코드 지침 확인** — `app/main.py`를 열고 Chat에 입력:
 적용될 지침: **.github/copilot-instructions.md, .github/instructions/api.instructions.md**
 
-> "PATCH /todos/{id} 부분 수정 엔드포인트를 추가해줘"
+```
+PATCH /todos/{id} 부분 수정 엔드포인트를 추가해줘
+```
 
 지침이 적용되면 다음이 변경됩니다:
 
 - [ ] **에러 처리**: `HTTPException(status_code=404, detail="한국어 메시지")`로 404를 처리하는가?
 - [ ] **에러 메시지**: 에러 메시지가 한국어로 작성되었는가?
 - [ ] **response_model**: `response_model=TodoResponse` 지정되어 있는가?
+
 
 어떤 인스트럭션을 참고했는지 알고 싶으면 아래 명령을 입력하세요:
 

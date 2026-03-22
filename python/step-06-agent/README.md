@@ -15,28 +15,11 @@
 | `starter/` | Step 5 완성 코드 (Prompt Files + due_date 기능 포함) — 여기서 시작하세요 |
 | `complete/` | 이번 스텝 완성 코드 — 막힐 때 참고하세요 |
 
-### 의존성 설치
-
-starter 폴더의 의존성을 설치하세요:
-
-```bash
-pip install -r requirements.txt    # sqlmodel 포함
-```
-
-> 혹은 Agent가 `sqlmodel`이 없음을 감지하고 직접 설치할 수도 있습니다.
-
 ---
 
 ## Agent 모드 확인
 
-이미 Agent 모드로 작업하고 있다면 이 단계는 건너뛰세요.
-아직 전환하지 않았다면:
-
-- **VS Code**: Chat 입력창 좌측 드롭다운 → "Agent" 선택 (또는 `Cmd+Shift+I`)
-- **IntelliJ**: Copilot Chat 탭에서 Agent 모드 활성화
-
-> 📸 **스크린샷**: Chat 입력창 좌측 드롭다운에서 "Agent" 모드를 선택하는 모습
-> ![Agent 모드 전환](./assets/agent-mode-dropdown.png)
+Chat 입력창에서 좌측 드롭다운 → "Agent" 선택
 
 ---
 
@@ -63,9 +46,6 @@ TODO 앱에 SQLite 데이터베이스를 연동해줘.
 8. 테스트용 임시 DB 설정 (tests/conftest.py)
 9. 기존 테스트 모두 통과하도록 수정
 
-참고:
-#file:app/schemas.py
-#file:app/main.py
 ```
 
 ### Agent의 작업 관찰 — 이전 단계와 뭐가 다른가?
@@ -82,15 +62,17 @@ TODO 앱에 SQLite 데이터베이스를 연동해줘.
 
 > 💡 단일 파일 수정이 아닌 **6단계 연쇄 작업**을 하나의 프롬프트로 수행합니다.
 
+> 📸 **스크린샷**: Agent가 여러 파일을 연쇄적으로 수정하는 모습
+> ![Agent 연쇄 작업](../screenshot/step06-agent-chain-work.png)
+
 ### ⚠️ 중요: 승인/거부
 
 Agent가 파일을 변경할 때마다 **diff를 확인**할 수 있습니다:
-- ✅ **Accept** — 변경 적용
-- ❌ **Reject** — 변경 거부
+- ✅ **Keep** — 변경 적용
+- ❌ **Undo** — 변경 거부
 - 📝 **수정 요청** — "이 부분은 다르게 해줘"
 
-> 📸 **스크린샷**: Agent가 파일을 수정한 후 diff 미리보기와 Accept/Reject 버튼이 표시된 모습
-> ![Agent Diff 미리보기](./assets/agent-diff-preview.png)
+![Agent Diff 미리보기](../screenshot/step06-agent-diff-preview.png)
 
 > **팁**: 한 번에 모든 변경을 수락하지 말고, 파일별로 리뷰하세요!
 
@@ -165,33 +147,6 @@ ls -la todo.db
 - [ ] `pytest -v` 전체 통과
 - [ ] Swagger UI에서 CRUD 동작 확인
 - [ ] 서버 재시작해도 데이터가 유지됨
-
----
-
-## 🔧 에러가 나면? — Agent에게 다시 시키기
-
-Agent 모드는 **스스로 에러를 감지하고 수정**할 수 있습니다.
-
-### 방법 1: Agent에게 직접 요청
-
-Agent Chat (`Ctrl+Shift+I` / Mac: `Cmd+Shift+I`)에서:
-```
-터미널에 에러가 났어. 분석해서 수정해줘
-```
-> Agent가 터미널 출력을 읽고, 파일을 수정하고, 다시 테스트까지 실행합니다.
-
-### 방법 2: 구체적으로 지시
-
-```
-pytest가 실패하고 있어. conftest.py의 DB 설정과 models.py를 확인해서 고쳐줘
-```
-
-### 방법 3: 처음부터 다시
-
-Agent가 만든 코드가 꼬였다면 `complete/` 폴더에서 시작하는 것도 방법입니다.
-DB 마이그레이션 관련 문제라면 `todo.db` 파일을 삭제하고 서버를 재시작하세요.
-
-> 💡 Agent 모드의 장점: "이 부분 다시 해줘"라고만 하면 알아서 수정합니다.
 
 ---
 

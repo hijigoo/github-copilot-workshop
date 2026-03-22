@@ -10,7 +10,6 @@
 
 - GitHub 계정 (Copilot 라이선스 활성화)
 - Python 3.11+
-- Git
 
 ---
 
@@ -24,81 +23,92 @@
 
 | 확장 | 설명 |
 |------|------|
-| **GitHub Copilot** | 코드 자동완성 |
-| **GitHub Copilot Chat** | AI 채팅 |
-| **Python** (ms-python) | Python 지원 |
+| **GitHub Copilot** | 코드 자동완성, Chat, Agent 모드 통합 AI 어시스턴트 |
 
-설치 후 VS Code 좌측 하단에 Copilot 아이콘이 보이는지 확인하세요.
+![VS Code Extension Copilot](../screenshot/step00-vscode-copilot-extension.png)
 
 ### 3. Copilot 로그인
 
-1. `Ctrl+Shift+P` (Mac: `Cmd+Shift+P`) → `GitHub Copilot: Sign In`
+1. 하단 상태 바에서 `Signed out` 버튼 클릭
+
+![Signed out 버튼](../screenshot/step00-vscode-copilot-signed-out.png)
+
 2. GitHub 계정으로 로그인
+
+![GitHub 로그인 창](../screenshot/step00-vscode-copilot-sign-in.png)
+
 3. 상태 바에 Copilot 아이콘 ✅ 표시 확인
 
-> 📸 **스크린샷**: VS Code 하단 상태 바에 Copilot 아이콘이 활성화된 모습
-> ![VS Code 상태 바 Copilot 아이콘](./assets/vscode-copilot-status-bar.png)
+![VS Code 상태 바 Copilot 아이콘](../screenshot/step00-vscode-copilot-status-bar.png)
 
 ### 4. 동작 확인
 
-상태 바(좌측 하단)에 Copilot 아이콘 클릭 시 다음 항목을 확인하세요:
+상태 바(좌측 하단)에 Copilot 아이콘 클릭 → **Inline Suggestions**가 `All files` 체크 ✅ 상태인지 확인
 
-- **Copilot Enterprise Usage**: Inline Suggestions, Chat messages, Premium requests 포함 여부
-- **Inline Suggestions**: `All files` 체크 ✅ 확인
-- 필요 시 언어별(Markdown 등) 토글 가능
-- `Snooze` 버튼으로 5분간 제안 일시 중지 가능
+### 5. Copilot Chat 열기
 
----
+중앙 상단 말풍선 아이콘 클릭 → Copilot Chat 패널이 열리면 성공 ✅
 
-## IntelliJ 환경 세팅
-
-### 1. IntelliJ IDEA 설치
-
-[https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/) (Community 또는 Ultimate)
-
-### 2. Copilot 플러그인 설치
-
-1. `Settings > Plugins > Marketplace`
-2. "GitHub Copilot" 검색 → 설치
-3. IDE 재시작
-4. GitHub 로그인 진행
-
-### 3. Copilot 탭 확인
-
-- 우측 사이드바 또는 하단에 **GitHub Copilot** 탭이 있는지 확인
-
-> 📸 **스크린샷**: IntelliJ 우측에 Copilot Chat 탭이 보이는 모습
-> ![IntelliJ Copilot Chat 탭](./assets/intellij-copilot-chat-tab.png)
-
-### 4. IntelliJ 사용자 선택
-
-- **Python 트랙**: Python Plugin 설치 후 동일하게 진행
-- **Java/Kotlin 트랙**: Java 트랙의 Step 01부터 Spring Boot로 진행
+![Copilot Chat 아이콘](../screenshot/step00-vscode-copilot-chat-icon.png)
+![Copilot Chat](../screenshot/step00-vscode-copilot-chat.png)
 
 ---
 
 ## 프로젝트 초기화
 
-터미널에서 실행:
+### 1. VS Code에서 빈 프로젝트 생성
 
+1. VS Code 실행
+2. `File > Open Folder...` 클릭
+3. 원하는 위치에 `todo-app` 폴더를 새로 만들고 선택
+
+### 2. VS Code 터미널에서 환경 설정
+
+상단 메뉴 `Terminal > New Terminal`로 터미널을 열고 아래 명령어를 실행:
+
+**macOS / Linux:**
 ```bash
-# 프로젝트 폴더 생성
-mkdir todo-app && cd todo-app
-
-# Git 초기화
-git init
-
 # Python 가상환경 생성 및 활성화
 python -m venv .venv
-source .venv/bin/activate          # macOS / Linux
-# .venv\Scripts\activate           # Windows
+source .venv/bin/activate
 
 # 의존성 설치 (서버 실행에 필요한 최소한만)
 pip install fastapi uvicorn
+```
 
-# 프로젝트 디렉터리 구조 생성
-mkdir -p app tests
-touch app/__init__.py tests/__init__.py
+**Windows (PowerShell):**
+```powershell
+# Python 가상환경 생성 및 활성화
+python -m venv .venv
+.venv\Scripts\activate
+
+# 의존성 설치 (서버 실행에 필요한 최소한만)
+pip install fastapi uvicorn
+```
+```
+Python 3.12 으로 가상환경을 .venv 폴더에 생성하고 활성화한 뒤, fastapi와 uvicorn을 설치해줘
+```
+
+**Copilot에게 시키기:**
+
+Copilot Chat 패널을 열고, 좌측 하단 모드를 **Agent**로 변경한 뒤 아래 프롬프트를 입력합니다:
+
+
+
+> 💡 `python` 명령어가 동작하지 않으면 `python3`으로 대체하세요. (예: `python3 -m venv .venv`)
+
+### 3. 프로젝트 디렉터리 구조 생성
+
+VS Code 사이드바에서 아래 구조대로 폴더와 파일을 생성합니다:
+
+1. 좌측 Explorer 패널에서 **New Folder** 아이콘 클릭 → `app` 폴더 생성
+2. `app` 폴더 안에 **New File** 아이콘 클릭 → `__init__.py` 파일 생성 (내용 비워둠)
+3. 같은 방법으로 `tests` 폴더와 `tests/__init__.py` 생성
+4. 루트에 `requirements.txt` 파일 생성하고 아래 내용 입력:
+
+```
+fastapi
+uvicorn
 ```
 
 ---
@@ -112,15 +122,6 @@ python -c "import fastapi; print('FastAPI:', fastapi.__version__)"
 ```
 
 버전이 출력되면 성공! ✅
-
-> 테스트 도구(pytest, httpx)는 Step 4에서, DB(sqlmodel)는 Step 7 Agent 모드에서 설치합니다.
-> 각 단계의 `starter/requirements.txt`에 필요한 의존성이 포함되어 있습니다.
-
-### Copilot 동작 확인
-
-1. `app/main.py` 파일 생성
-2. `from fastapi import` 까지 타이핑
-3. Copilot이 자동완성을 제안하면 성공! ✅
 
 ---
 
@@ -137,13 +138,6 @@ todo-app/
 │   └── (이후 단계에서 추가)
 └── requirements.txt
 ```
-
----
-
-## ⚠️ 이 단계의 규칙
-
-> **Copilot Inline(Tab 자동완성)만 사용하세요.**
-> Chat은 아직 열지 마세요. 다음 단계에서 배워봅니다!
 
 ---
 
