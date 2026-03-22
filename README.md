@@ -14,7 +14,7 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Agent, Custom
 | 언어 | IDE | 프레임워크 | 시작하기 |
 |:----:|:---:|----------|---------|
 | 🐍 Python | VS Code | FastAPI + Pydantic | [Python 워크샵 →](python/README.md) |
-| ☕ Java | IntelliJ IDEA / VS Code | Spring Boot + Spring Data JPA | [Java 워크샵 →](java/README.md) |
+| ☕ Java | IntelliJ IDEA | Spring Boot + Spring Data JPA | [Java 워크샵 →](java/README.md) |
 
 ---
 
@@ -41,7 +41,6 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Agent, Custom
 |:----:|------|-----------------|
 | 10 | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
 | 11 | Docker | Copilot으로 Dockerfile, docker-compose 생성 및 컨테이너화 |
-| 12 | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 |
 
 ---
 
@@ -57,7 +56,7 @@ github-copilot-workshop/
 │   │   ├── starter/       ← 시작 코드
 │   │   └── complete/      ← 참고 정답
 │   ├── ...
-    └── step-12-bonus-b-react/
+│   └── step-12-bonus-a-docker/
 └── java/                  ← Java 트랙 (Spring Boot + IntelliJ)
     ├── README.md
     ├── step-00-setup/
@@ -65,7 +64,7 @@ github-copilot-workshop/
     │   ├── starter/
     │   └── complete/
     ├── ...
-    └── step-12-bonus-b-react/
+    └── step-12-bonus-a-docker/
 ```
 
 각 스텝에는 `starter/`(시작 코드)와 `complete/`(참고 정답)가 포함되어 있습니다.

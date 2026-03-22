@@ -234,6 +234,6 @@ docker-compose down
 
 ---
 
-## 다음 단계
+## 🎉 보너스 트랙 완료!
 
-→ [Step 13. React 프론트엔드](../step-13-bonus-b-react/README.md)
+모든 보너스 트랙을 완료했습니다. [메인 README](../README.md)로 돌아가세요.

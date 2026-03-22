@@ -140,4 +140,3 @@ Agent의 응답 품질이 떨어지는 것을 느끼면 — 이것이 **Context 
 완료 후 원하는 **보너스 트랙**을 선택하세요:
 - **[Step 11. README 문서화](../step-11-bonus-readme/README.md)**: Copilot으로 프로젝트 README + Mermaid 다이어그램 생성
 - **[Step 12. Docker](../step-12-bonus-a-docker/README.md)**: Copilot으로 Docker 컨테이너화 (Layered Jar)
-- **[Step 13. React.js 프론트엔드](../step-13-bonus-b-react/README.md)**: TODO API를 소비하는 React UI

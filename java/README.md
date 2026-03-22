@@ -31,7 +31,7 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 ## 프로젝트 구조
 
 각 스텝 폴더는 `README.md`(가이드) + `starter/`(시작 코드) + `complete/`(완성 코드)로 구성됩니다.
-보너스 트랙(10~14)은 README 가이드만 제공하는 자율 실습입니다.
+보너스 트랙(11~12)은 README 가이드만 제공하는 자율 실습입니다.
 
 ---
 
@@ -59,7 +59,6 @@ GitHub Copilot의 기능을 단계별로 익히는 핸즈온 워크샵입니다.
 |:----:|------|-----------------|
 | [11](step-11-bonus-readme/) | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
 | [12](step-12-bonus-a-docker/) | Docker | Copilot으로 Dockerfile, docker-compose 설정 생성 및 컨테이너화 |
-| [13](step-13-bonus-b-react/) | React 프론트엔드 | Copilot과 함께 TODO 앱 UI 만들기 (Vite + TS + Tailwind) |
 
 ---
 
