@@ -7,7 +7,7 @@ This is a **progressive tutorial workshop** that teaches GitHub Copilot features
 - **`python/`** — Python + FastAPI + VS Code
 - **`java/`** — Java + Spring Boot + IntelliJ IDEA
 
-Each `step-XX-*` folder is a self-contained lesson with `starter/` (starting code) and `complete/` (reference answer). Steps 00–08 are the main track; 09–12 are bonus tracks (README-only guides).
+Each `step-XX-*` folder is a self-contained lesson with `starter/` (starting code) and `complete/` (reference answer). Steps 00–10 are the main track; 11–12 are bonus tracks (README-only self-paced guides).
 
 **This is educational content, not a production application.** When modifying code, preserve the progressive learning design — each step must only use Copilot features introduced up to that point.
 
@@ -30,7 +30,7 @@ Each `step-XX-*` folder is a self-contained lesson with `starter/` (starting cod
 
 ## Architecture Patterns
 
-### File Organization (steps 06–08)
+### File Organization (steps 07–10)
 
 ```
 app/database.py   — Engine, create_db_and_tables(), get_session() generator
@@ -63,7 +63,7 @@ def create_resource(data: ResourceCreate, session: Session = Depends(get_session
 
 ### Testing Pattern
 
-- Tests use **in-memory SQLite** via `conftest.py` dependency override (see `step-05-agent/complete/tests/conftest.py`)
+- Tests use **in-memory SQLite** via `conftest.py` dependency override (see `step-06-agent/complete/tests/conftest.py`)
 - Group tests by endpoint in classes: `TestCreateTodo`, `TestListTodos`, etc.
 - Use helper functions (`create_test_todo()`, `create_test_category()`) for test data setup
 - Cover: happy path, validation errors, edge cases, 404 scenarios
@@ -72,10 +72,10 @@ def create_resource(data: ResourceCreate, session: Session = Depends(get_session
 
 | Steps | Code style | DB | Key constraint |
 |-------|-----------|-----|----------------|
-| 01–04 | In-memory `list[dict]` | None | No database, no SQLModel |
-| 05–09 | SQLModel + Session | SQLite | Full ORM with `Depends(get_session)` |
+| 01–05 | In-memory `list[dict]` + `schemas.py` | None | No database, no SQLModel (`schemas.py` introduced at step-04) |
+| 06–10 | SQLModel + Session | SQLite | Full ORM with `Depends(get_session)` |
 
-When editing a specific step's code, use only patterns available at that step level. For example, step-03 code should not use `schemas.py` (introduced in step-09 SDD or via Agent in step-05).
+When editing a specific step's code, use only patterns available at that step level. For example, step-03 code should not use `schemas.py` (introduced in step-04 prompt-files). Steps 08–10 start from a blank/minimal starter and build from scratch using Agent/Sub-Agent.
 
 ## Developer Commands
 
@@ -88,7 +88,7 @@ uvicorn app.main:app --reload
 pytest -v
 
 # Run tests from workspace root for a specific step
-cd step-05-agent/complete && pytest -v
+cd python/step-06-agent/complete && pytest -v
 ```
 
 ## Copilot Config Files Inside Steps
