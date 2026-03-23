@@ -42,6 +42,7 @@ TODO 앱을 처음부터 만들어가며, 자동완성부터 Chat, Instructions,
 |:----:|------|-----------------|
 | 11 | README 문서화 | Copilot으로 프로젝트 README + Mermaid 다이어그램 생성 |
 | 12 | Docker | Copilot으로 Dockerfile, docker-compose 생성 및 컨테이너화 |
+| 13 | Copilot CLI | TBD |
 
 ---
 
